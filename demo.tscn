@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://xjvfuew2qk7y"]
 
+[ext_resource type="Script" uid="uid://i3xgflo4deba" path="res://demo.gd" id="1_5hfv0"]
+
 [node name="demo" type="Node2D" unique_id=1211746299]
+script = ExtResource("1_5hfv0")
+
+[node name="Button" type="Button" parent="." unique_id=863911318]
+offset_left = 107.0
+offset_top = 127.0
+offset_right = 803.0
+offset_bottom = 392.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

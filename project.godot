@@ -11,12 +11,19 @@ config_version=5
 [application]
 
 config/name="LDMania"
-run/main_scene="uid://bfus3f0wm3grg"
+run/main_scene="uid://c05te61unhldb"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://dactiyyten6ky"
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+StateMachine="*uid://cvumim4ltmspe"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
