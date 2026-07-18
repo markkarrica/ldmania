@@ -5,7 +5,6 @@ extends Node2D
 @onready var label = $Wheel/NextGame
 @onready var start_label = $Wheel/PressSpace
 @onready var subviewport = $Minigame/Control/MarginContainer/SubViewportContainer/SubViewport
-"res://scene.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	state_machine.set_minigames(minigames)

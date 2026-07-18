@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://btc56htmas36s"]
+
+[ext_resource type="Script" uid="uid://q4p380w5cu77" path="res://ui/settings_menu/settings_menu.gd" id="1_kvsec"]
+
+[node name="SettingsMenu" type="Control" unique_id=1012778111]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kvsec")
+main_menu_scene = "uid://bfus3f0wm3grg"
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=824055625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout" unique_id=366704572]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Button" type="Button" parent="Layout/MarginContainer" unique_id=111875898]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "< Main Menu"
+
+[node name="Label" type="Label" parent="Layout/MarginContainer" unique_id=1196454949]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_type_variation = &"HeaderLarge"
+text = "Settings"
+
+[node name="Settings" type="HBoxContainer" parent="Layout" unique_id=1265055388]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Audio" type="VBoxContainer" parent="Layout/Settings" unique_id=1791003137]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVolumeBox" type="HBoxContainer" parent="Layout/Settings/Audio" unique_id=847881117]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="Layout/Settings/Audio/MusicVolumeBox" unique_id=426901555]
+layout_mode = 2
+text = "Music volume: "
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Layout/Settings/Audio/MusicVolumeBox" unique_id=1327426529]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="EffectsVolumeBox" type="HBoxContainer" parent="Layout/Settings/Audio" unique_id=1500216102]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="EffectsVolumeLabel" type="Label" parent="Layout/Settings/Audio/EffectsVolumeBox" unique_id=549581234]
+layout_mode = 2
+text = "Effects volume: "
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="Layout/Settings/Audio/EffectsVolumeBox" unique_id=1930799119]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="Video" type="VBoxContainer" parent="Layout/Settings" unique_id=1037469563]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="General" type="VBoxContainer" parent="Layout/Settings" unique_id=1645893373]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Layout/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="drag_ended" from="Layout/Settings/Audio/MusicVolumeBox/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
+[connection signal="drag_ended" from="Layout/Settings/Audio/EffectsVolumeBox/EffectsVolumeSlider" to="." method="_on_effects_volume_slider_drag_ended"]

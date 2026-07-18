@@ -20,6 +20,7 @@ config/icon="res://assets/icon.svg"
 
 Util="*uid://cqhtt85tja2ff"
 StateMachine="*uid://cvumim4ltmspe"
+Settings="*uid://dscie375x6lgb"
 
 [display]
 
