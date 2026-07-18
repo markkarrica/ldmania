@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cf78lu114wlvc"]
+
+[ext_resource type="Script" uid="uid://chcyxnl0kx88h" path="res://core/main/main_scene.gd" id="1_nec1f"]
+[ext_resource type="PackedScene" uid="uid://b2u1qjofe3kfl" path="res://minigames/fishing/fishing_minigame.tscn" id="2_opu1e"]
+[ext_resource type="PackedScene" uid="uid://xjvfuew2qk7y" path="res://demo.tscn" id="3_lykkd"]
+
+[node name="MainScene" type="Node2D" unique_id=1840735611]
+script = ExtResource("1_nec1f")
+minigames = Array[PackedScene]([ExtResource("2_opu1e"), ExtResource("3_lykkd")])
+
+[node name="Minigame" type="Node2D" parent="." unique_id=1273076877]

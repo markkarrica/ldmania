@@ -1,17 +1,15 @@
-extends Control
+extends Node2D
 
+@export var minigames: Array[PackedScene]
 @onready var state_machine = $"/root/StateMachine"
-@export var play_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	state_machine.set_minigames(minigames)
+	state_machine.reset_state()
+	state_machine.gen_minigames_order()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_packed(play_scene)
 	
