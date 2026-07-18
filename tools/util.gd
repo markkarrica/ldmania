@@ -1,10 +1,12 @@
 extends Node
 
-var override_seed = 123456
+var override_seed = 0
 @onready var random = RandomNumberGenerator.new()
 
+
 func _ready() -> void:
-	if override_seed != null:
+	random.randomize()
+	if override_seed != 0:
 		random.set_seed(override_seed)
 
 func deterministic_shuffle(array: Array, custom_rng: RandomNumberGenerator = random) -> Array:
