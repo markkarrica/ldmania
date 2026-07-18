@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://b2u1qjofe3kfl"]
 
 [ext_resource type="Script" uid="uid://c57oybc5i6xxr" path="res://minigames/fishing/fishing_minigame.gd" id="1_tssmx"]
-[ext_resource type="Texture2D" uid="uid://cf1smdbsf7co1" path="res://ui/main_menu/icons/dice.png" id="2_ya3tw"]
 
 [node name="FishingMinigame" type="Node2D" unique_id=1259982782]
 script = ExtResource("1_tssmx")
 
-[node name="Dice" type="Sprite2D" parent="." unique_id=241672678]
-position = Vector2(232, 159)
-texture = ExtResource("2_ya3tw")
+[node name="WinButton" type="Button" parent="." unique_id=1935971614]
+offset_left = 168.0
+offset_top = 171.0
+offset_right = 363.0
+offset_bottom = 236.0
+text = "Click here to WIN :)"
+
+[node name="LoseButton" type="Button" parent="." unique_id=1475817024]
+offset_left = 385.0
+offset_top = 172.0
+offset_right = 580.0
+offset_bottom = 237.0
+text = "Click here to LOSE :("
+
+[connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]

@@ -2,7 +2,7 @@ extends Control
 
 @onready var state_machine = $"/root/StateMachine"
 @export_file("*.tscn") var play_scene: String
-@onready var seed_text = $"HBoxContainer/VBoxContainer/HBoxContainer/Seed text"
+@onready var seed_text = $"MarginContainer/VBoxContainer/HBoxContainer/Seed text"
 @onready var seed_wrong_timer = $SeedWrongTimer
 @onready var util = $"/root/Util"
 @onready var title = $Title
@@ -40,8 +40,6 @@ func _on_play_button_pressed() -> void:
 	else:
 		util.random.set_seed(int(seed_text.text))
 		get_tree().change_scene_to_file(play_scene)
-	
-
 
 func _on_seed_text_text_changed(new_text: String) -> void:
 	# If empty, allow it
@@ -63,6 +61,5 @@ func _on_seed_wrong_timer_timeout() -> void:
 func _on_dice_button_pressed() -> void:
 	seed_text.text = str(int(util.random.randi()/(util.random.randi() / 6734.0)))
 
-
-func _on_button_pressed() -> void:
+func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file(settings_scene)
