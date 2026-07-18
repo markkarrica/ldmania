@@ -26,8 +26,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
 
 
 func _on_play_button_pressed() -> void:
@@ -43,10 +43,12 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_seed_text_text_changed(new_text: String) -> void:
+	print(new_text)
+	
 	# If empty, allow it
 	if new_text.is_empty():
 		return
-		
+	
 	# Check if the new text is a valid number
 	if !new_text.is_valid_int():
 		# Revert to previous valid text
