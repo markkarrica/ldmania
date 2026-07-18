@@ -39,8 +39,6 @@ func _on_play_button_pressed() -> void:
 	else:
 		util.random.set_seed(int(seed_text.text))
 		get_tree().change_scene_to_packed(play_scene)
-	
-
 
 func _on_seed_text_text_changed(new_text: String) -> void:
 	print(new_text)

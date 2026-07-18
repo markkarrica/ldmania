@@ -5,7 +5,9 @@ extends Node2D
 @onready var label = $Wheel/NextGame
 @onready var start_label = $Wheel/PressSpace
 @onready var subviewport = $Minigame/Control/MarginContainer/SubViewportContainer/SubViewport
-"res://scene.tscn"
+@onready var label_tween: Tween
+
+var last_minigame: Minigame
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	state_machine.set_minigames(minigames)
@@ -14,12 +16,15 @@ func _ready() -> void:
 	
 	label.visible = true
 	label.max_lines_visible = 17
-	var label_tween = create_tween()
+	create_label_tween()
+
+func create_label_tween():
+	label_tween = create_tween()
 	label_tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)\
 	.tween_property(label, "visible_characters", 35, 1.5)
 	
 	label_tween.tween_callback(_wheel_tween_over)
-	
+
 
 func _wheel_tween_over():
 	label.visible = false
@@ -38,12 +43,17 @@ func _input(event: InputEvent) -> void:
 			pass
 		else:
 			print("We back")
-			var child: Minigame = next_game.instantiate()
-			
-			child.load(1)
-			child.on_minigame_end.connect(print)
-			
-			subviewport.add_child(child)
+			last_minigame = next_game.instantiate()
+			last_minigame.on_minigame_end.connect(_minigame_ended)
+			subviewport.add_child(last_minigame)
+
+func _minigame_ended(is_success: bool, time_gained: int):
+	if is_success:
+		print("YAY! You won " + str(time_gained) + " seconds!")
+	else:
+		print("OH NO! :(")
+	label.visible = true
+	create_label_tween()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
