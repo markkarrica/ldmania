@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b2u1qjofe3kfl"]
 
 [ext_resource type="Script" uid="uid://c57oybc5i6xxr" path="res://minigames/fishing/fishing_minigame.gd" id="1_tssmx"]
+[ext_resource type="Texture2D" uid="uid://cf1smdbsf7co1" path="res://ui/main_menu/icons/dice.png" id="2_ya3tw"]
 
 [node name="FishingMinigame" type="Node2D" unique_id=1259982782]
 script = ExtResource("1_tssmx")
+
+[node name="Dice" type="Sprite2D" parent="." unique_id=241672678]
+position = Vector2(232, 159)
+texture = ExtResource("2_ya3tw")
