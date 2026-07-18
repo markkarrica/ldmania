@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://cq15vcjmk1kh0" path="res://intro/intro.gd" id="1_alxvg"]
 [ext_resource type="PackedScene" uid="uid://bfus3f0wm3grg" path="res://ui/main_menu/main_menu.tscn" id="2_pxqmo"]
 [ext_resource type="PackedScene" uid="uid://b8833655kko2e" path="res://intro/center_container.tscn" id="3_vjsr4"]
+[ext_resource type="Texture2D" uid="uid://hebqlqbjr36i" path="res://assets/intro/godot.png" id="4_vyos2"]
 [ext_resource type="Texture2D" uid="uid://cfo8yt1upwdoo" path="res://assets/intro/made-by.png" id="5_rsiac"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vyos2"]
-load_path = "res://.godot/imported/godot.png-01fd4266655fd796f1c6b748927d86e6.ctex"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ouevq"]
 viewport_path = NodePath("SubViewport")
@@ -63,7 +61,7 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-texture = SubResource("CompressedTexture2D_vyos2")
+texture = ExtResource("4_vyos2")
 stretch_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=424461737]
