@@ -43,8 +43,6 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_seed_text_text_changed(new_text: String) -> void:
-	print(new_text)
-	
 	# If empty, allow it
 	if new_text.is_empty():
 		return
@@ -52,8 +50,8 @@ func _on_seed_text_text_changed(new_text: String) -> void:
 	# Check if the new text is a valid number
 	if !new_text.is_valid_int():
 		# Revert to previous valid text
-		seed_text.text = new_text.left(new_text.length() -1)
-		seed_text.caret_column = new_text.length()-1
+		seed_text.text = util.string_to_valid_int(new_text)
+		seed_text.caret_column = seed_text.text.length()
 		
 
 

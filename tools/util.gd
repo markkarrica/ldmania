@@ -21,3 +21,16 @@ func deterministic_shuffle(array: Array, custom_rng: RandomNumberGenerator = ran
 		shuffled_array[i] = shuffled_array[j]
 		shuffled_array[j] = temp
 	return shuffled_array
+
+## Takes in a string and returns only chars matching from 0..9, for example "12df43." -> "1243"
+func string_to_valid_int(string: String) -> String:
+	if string.is_valid_int():
+		return string
+	var new_string = "" 
+	for char in string:
+		if char.is_valid_int():
+				new_string += char
+	
+	return new_string
+	
+	
