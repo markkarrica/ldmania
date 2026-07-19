@@ -12,11 +12,10 @@ var pills_mult: Array[float] = [1.0, 0.8, 0.6]
 @onready var bar_size = $Bar.size[0]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	StateMachine.difficulty = 1
+	if StateMachine.difficulty == 0:
+		StateMachine.difficulty = 1
 	pill_speed = StateMachine.log_diff_scale()*150.0
 	
-
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
