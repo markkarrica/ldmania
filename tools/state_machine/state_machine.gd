@@ -13,6 +13,9 @@ var current_minigame_index = 0
 func _ready() -> void:
 	pass # Replace with function body.
 
+func log_diff_scale():
+	return log(StateMachine.difficulty +1)
+
 func reset_state():
 	time_left_ms = 20*1000
 	debug_code = 0

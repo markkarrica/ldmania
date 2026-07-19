@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cf78lu114wlvc"]
 
 [ext_resource type="Script" uid="uid://chcyxnl0kx88h" path="res://core/main/main_scene.gd" id="1_nec1f"]
-[ext_resource type="PackedScene" uid="uid://b2u1qjofe3kfl" path="res://minigames/fishing/fishing_minigame.tscn" id="2_opu1e"]
+[ext_resource type="PackedScene" uid="uid://b2u1qjofe3kfl" path="res://minigames/select_to_win/select_to_win.tscn" id="2_opu1e"]
 [ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="4_mh84v"]
+[ext_resource type="PackedScene" uid="uid://dqs1rqgedc1je" path="res://minigames/moving_bar/moving_bar.tscn" id="4_rvjp5"]
 
 [node name="MainScene" type="Node2D" unique_id=911074153]
 script = ExtResource("1_nec1f")
@@ -13,6 +14,7 @@ scale = Vector2(2, 2)
 
 [node name="Border" type="Sprite2D" parent="Machine" unique_id=110534970]
 position = Vector2(320, 180)
+scale = Vector2(2, 2)
 texture = ExtResource("4_mh84v")
 
 [node name="TimeLeft" type="Label" parent="Machine" unique_id=1571511260]
@@ -87,3 +89,7 @@ offset_top = 173.0
 offset_right = 469.5
 offset_bottom = 196.0
 text = "Press space to start the minigame"
+
+[node name="MovingBar" parent="." unique_id=1349646125 instance=ExtResource("4_rvjp5")]
+position = Vector2(254, 94)
+scale = Vector2(4, 4)

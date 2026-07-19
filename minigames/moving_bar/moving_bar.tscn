@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dqs1rqgedc1je"]
+
+[ext_resource type="Script" uid="uid://pbccs7hh4kqe" path="res://minigames/moving_bar/moving_bar.gd" id="1_fywjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2x5"]
+size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r2n2"]
+size = Vector2(20, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyl1c"]
+size = Vector2(7, 40)
+
+[node name="MovingBar" type="Node2D" unique_id=1349646125]
+scale = Vector2(4, 4)
+script = ExtResource("1_fywjp")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1764908548]
+offset_right = 240.0
+offset_bottom = 134.0
+
+[node name="Bar" type="ColorRect" parent="." unique_id=1482292607]
+offset_left = 4.0
+offset_top = 57.25
+offset_right = 223.5
+offset_bottom = 67.25
+color = Color(0.1545313, 0.40563887, 0.6809886, 1)
+
+[node name="Pill" type="ColorRect" parent="Bar" unique_id=1925182477]
+layout_mode = 0
+offset_left = 58.0
+offset_right = 98.0
+offset_bottom = 10.0
+color = Color(0.6896427, 0.6780819, 0.97860736, 1)
+
+[node name="PillArea" type="Area2D" parent="Bar/Pill" unique_id=1098450540]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/Pill/PillArea" unique_id=349087736]
+position = Vector2(20, 5)
+shape = SubResource("RectangleShape2D_nb2x5")
+
+[node name="RightBoundry" type="Area2D" parent="Bar" unique_id=2047753405]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/RightBoundry" unique_id=450111476]
+position = Vector2(229.5, 3.75)
+shape = SubResource("RectangleShape2D_4r2n2")
+
+[node name="LeftBoundry" type="Area2D" parent="Bar" unique_id=1126928004]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/LeftBoundry" unique_id=46820917]
+position = Vector2(-10, 4.5)
+shape = SubResource("RectangleShape2D_4r2n2")
+
+[node name="Cursor" type="ColorRect" parent="." unique_id=629429332]
+offset_left = 116.0
+offset_top = 44.0
+offset_right = 123.0
+offset_bottom = 84.0
+
+[node name="Area2D" type="Area2D" parent="Cursor" unique_id=477177896]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D" unique_id=1621172295]
+position = Vector2(3.5, 20)
+shape = SubResource("RectangleShape2D_tyl1c")
+
+[connection signal="area_entered" from="Bar/RightBoundry" to="." method="_on_right_boundry_area_entered"]
+[connection signal="area_entered" from="Bar/LeftBoundry" to="." method="_on_left_boundry_area_entered"]
