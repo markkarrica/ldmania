@@ -1,10 +1,8 @@
 extends Control
 
-@onready var state_machine = $"/root/StateMachine"
 @export_file("*.tscn") var play_scene: String
 @onready var seed_text = $"MarginContainer/VBoxContainer/HBoxContainer/Seed text"
 @onready var seed_wrong_timer = $SeedWrongTimer
-@onready var util = $"/root/Util"
 @onready var title = $Title
 @export_file("*.tscn") var settings_scene: String
 
@@ -37,9 +35,9 @@ func _on_play_button_pressed() -> void:
 		seed_text.placeholder_text = "Seed not valid"
 		seed_text.modulate = Color.RED
 		seed_wrong_timer.start()
-	else:
-		util.random.set_seed(int(seed_text.text))
-		get_tree().change_scene_to_file(play_scene)
+		return
+	Util.random.set_seed(int(seed_text.text))
+	get_tree().change_scene_to_file(play_scene)
 
 func _on_seed_text_text_changed(new_text: String) -> void:
 	# If empty, allow it
@@ -49,7 +47,7 @@ func _on_seed_text_text_changed(new_text: String) -> void:
 	# Check if the new text is a valid number
 	if !new_text.is_valid_int():
 		# Revert to previous valid text
-		seed_text.text = util.string_to_valid_int(new_text)
+		seed_text.text = Util.string_to_valid_int(new_text)
 		seed_text.caret_column = seed_text.text.length()
 		
 
@@ -59,7 +57,7 @@ func _on_seed_wrong_timer_timeout() -> void:
 	seed_text.modulate = Color.WHITE
 
 func _on_dice_button_pressed() -> void:
-	seed_text.text = str(int(util.random.randi()/(util.random.randi() / 6734.0)))
+	seed_text.text = str(int(Util.random.randi()/(Util.random.randi() / 6734.0)))
 
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file(settings_scene)

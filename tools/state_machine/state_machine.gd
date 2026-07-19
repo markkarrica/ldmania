@@ -5,7 +5,6 @@ var debug_code = 999999
 var difficulty = 0
 var score = 0
 var shuffled_games: Array[PackedScene]
-@onready var util = $/root/Util
 var minigames: Array[PackedScene]
 var current_minigame_index = 0
 
@@ -19,8 +18,8 @@ func reset_state():
 	difficulty = 1
 
 func gen_minigames_order():
-	shuffled_games = util.deterministic_shuffle(minigames)
-	print(util.random.get_seed())
+	shuffled_games = Util.deterministic_shuffle(minigames)
+	print(Util.random.get_seed())
 	
 func set_minigames(games: Array[PackedScene]):
 	minigames = games
@@ -30,7 +29,7 @@ func _input(event: InputEvent):
 		print("Hello")
 		gen_minigames_order()
 
-func get_current_minigame_if_available():
+func get_current_minigame_if_available() -> PackedScene:
 	print(current_minigame_index)
 	print(shuffled_games.size())
 	# we check if we have done all minigames:
@@ -40,6 +39,10 @@ func get_current_minigame_if_available():
 		current_minigame_index += 1
 		return shuffled_games[current_minigame_index - 1]
 
+func goto_next_round():
+	current_minigame_index = 0
+	gen_minigames_order()
+	difficulty += 1
 
  #Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

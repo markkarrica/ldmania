@@ -2,88 +2,34 @@
 
 [ext_resource type="Script" uid="uid://chcyxnl0kx88h" path="res://core/main/main_scene.gd" id="1_nec1f"]
 [ext_resource type="PackedScene" uid="uid://b2u1qjofe3kfl" path="res://minigames/fishing/fishing_minigame.tscn" id="2_opu1e"]
+[ext_resource type="Texture2D" uid="uid://cdlvvqfr56jg2" path="res://core/main/assets/background.png" id="3_lykkd"]
 [ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="4_mh84v"]
 
-[node name="MainScene" type="Node2D" unique_id=911074153]
+[node name="MainScene" type="Control" unique_id=703159878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_nec1f")
 minigames = Array[PackedScene]([ExtResource("2_opu1e")])
 
-[node name="Machine" type="Node2D" parent="." unique_id=2145560591]
-scale = Vector2(2, 2)
-
-[node name="Border" type="Sprite2D" parent="Machine" unique_id=110534970]
-position = Vector2(320, 180)
-texture = ExtResource("4_mh84v")
-
-[node name="TimeLeft" type="Label" parent="Machine" unique_id=1571511260]
-offset_left = 287.0
-offset_top = 13.0
-offset_right = 366.0
-offset_bottom = 36.0
-theme_override_colors/font_color = Color(0.8980392, 0.28235295, 0, 1)
-text = "Time: "
-
-[node name="Difficulty" type="Label" parent="Machine" unique_id=1313701372]
-offset_left = 31.0
-offset_top = 12.0
-offset_right = 110.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(0.8980392, 0.28235295, 0, 1)
-text = "Difficulty: "
-
-[node name="Score" type="Label" parent="Machine" unique_id=1565254552]
-offset_left = 506.0
-offset_top = 17.0
-offset_right = 585.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.8980392, 0.28235295, 0, 1)
-text = "Score: "
-
-[node name="Minigame" type="Node2D" parent="." unique_id=1273076877]
-
-[node name="Control" type="Control" parent="Minigame" unique_id=611096102]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1279.0
-offset_bottom = 720.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Minigame/Control" unique_id=743536618]
+[node name="Background" type="TextureRect" parent="." unique_id=1636360684]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 103
-theme_override_constants/margin_top = 98
-theme_override_constants/margin_right = 95
-theme_override_constants/margin_bottom = 90
+texture = ExtResource("3_lykkd")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Minigame/Control/MarginContainer" unique_id=1839579202]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="Minigame/Control/MarginContainer/SubViewportContainer" unique_id=1597180203]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1074, 532)
-render_target_update_mode = 4
-
-[node name="Wheel" type="Node2D" parent="." unique_id=1114515693]
-scale = Vector2(2, 2)
-
-[node name="NextGame" type="Label" parent="Wheel" unique_id=1293492506]
-offset_left = 200.0
-offset_top = 137.0
-offset_right = 457.0
-offset_bottom = 215.5
-text = "The next game is: XXX"
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="PressSpace" type="Label" parent="Wheel" unique_id=1431796482]
-visible = false
-offset_left = 207.5
-offset_top = 173.0
-offset_right = 469.5
-offset_bottom = 196.0
-text = "Press space to start the minigame"
+[node name="Cabinet" type="TextureRect" parent="." unique_id=2110396089]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_mh84v")
