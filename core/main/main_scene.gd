@@ -9,6 +9,7 @@ func _ready() -> void:
 	
 func _load_next_minigame():
 	var current_minigame_scene: PackedScene = StateMachine.get_current_minigame_if_available()
+	
 	if current_minigame_scene == null:
 		#end of round
 		StateMachine.goto_next_round()
