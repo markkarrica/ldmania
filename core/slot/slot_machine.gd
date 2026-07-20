@@ -6,13 +6,18 @@ signal animation_finished
 var reels_stopped: Array[bool] = [false, false, false]
 @export var regimen_speed: int = 500
 @export var base_spin_up_time: float = 1.5
+
+@export var tokens: Array[CompressedTexture2D]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	for reel in reels:
+		reel.tokens = tokens
+		reel.reset_state()
 	
 func reset_state() -> void:
 	for reel in reels:
 		reel.reset_state()
+		reel.tokens = tokens
 	
 func start() -> void:
 	for reel in reels:

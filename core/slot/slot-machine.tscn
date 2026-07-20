@@ -3,10 +3,14 @@
 [ext_resource type="Script" uid="uid://bjfxeoseny8" path="res://core/slot/slot_machine.gd" id="1_dp7kk"]
 [ext_resource type="Texture2D" uid="uid://btnrca83ahqmm" path="res://core/slot/assets/bezel.png" id="1_pl4f3"]
 [ext_resource type="PackedScene" uid="uid://dldoni6fh1hao" path="res://core/slot/reel.tscn" id="2_dl4mn"]
+[ext_resource type="Texture2D" uid="uid://ctiid2r2pjt7n" path="res://minigames/demo_payline_tokens/demo-token-1.png" id="2_quywy"]
+[ext_resource type="Texture2D" uid="uid://d2fo8nhccit5x" path="res://minigames/demo_payline_tokens/demo-token-2.png" id="3_s04ls"]
+[ext_resource type="Texture2D" uid="uid://c85c470snj00k" path="res://minigames/demo_payline_tokens/demo-token-3.png" id="4_k4gcb"]
 
 [node name="SlotMachine" type="Node2D" unique_id=1970859362]
 scale = Vector2(4, 4)
 script = ExtResource("1_dp7kk")
+tokens = Array[CompressedTexture2D]([ExtResource("2_quywy"), ExtResource("3_s04ls"), ExtResource("4_k4gcb")])
 
 [node name="Reel3" parent="." unique_id=868968498 instance=ExtResource("2_dl4mn")]
 position = Vector2(133, 5)

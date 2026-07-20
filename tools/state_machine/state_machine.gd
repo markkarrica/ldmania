@@ -4,8 +4,8 @@ var time_left_ms = 0
 var debug_code = 999999
 var difficulty = 0
 var score = 0
-var shuffled_games: Array[PackedScene]
-var minigames: Array[PackedScene]
+var shuffled_games: Array[int]
+var minigames: Array[int]
 var current_minigame_index = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -23,19 +23,19 @@ func reset_state():
 func gen_minigames_order():
 	shuffled_games = Util.deterministic_shuffle(minigames)
 	
-func set_minigames(games: Array[PackedScene]):
+func set_minigames(games: Array[int]):
 	minigames = games
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("debug_key_1"):
 		gen_minigames_order()
 
-func get_current_minigame_if_available() -> PackedScene:
+func get_current_minigame_if_available() -> int:
 	print(current_minigame_index)
 	print(shuffled_games.size())
 	# we check if we have done all minigames:
 	if current_minigame_index == shuffled_games.size():
-		return null
+		return -1
 	else:
 		current_minigame_index += 1
 		return shuffled_games[current_minigame_index - 1]
