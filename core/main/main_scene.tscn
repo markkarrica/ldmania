@@ -94,5 +94,5 @@ theme_override_fonts/font = ExtResource("8_na1uf")
 text = "0000000"
 
 [node name="SlotMachine" parent="." unique_id=1970859362 instance=ExtResource("5_rvjp5")]
-position = Vector2(87.75, 200)
+position = Vector2(65.25, 200)
 scale = Vector2(1, 1)

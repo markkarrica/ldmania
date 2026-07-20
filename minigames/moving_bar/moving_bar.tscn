@@ -15,13 +15,13 @@ size = Vector2(7, 40)
 script = ExtResource("1_fywjp")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1764908548]
-offset_right = 240.0
+offset_right = 200.0
 offset_bottom = 134.0
 
 [node name="Bar" type="ColorRect" parent="." unique_id=1482292607]
 offset_left = 4.0
 offset_top = 57.25
-offset_right = 223.5
+offset_right = 197.0
 offset_bottom = 67.25
 color = Color(0.1545313, 0.40563887, 0.6809886, 1)
 
@@ -41,7 +41,7 @@ shape = SubResource("RectangleShape2D_nb2x5")
 [node name="RightBoundry" type="Area2D" parent="Bar" unique_id=2047753405]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/RightBoundry" unique_id=450111476]
-position = Vector2(229.5, 3.75)
+position = Vector2(203, 3.75)
 shape = SubResource("RectangleShape2D_4r2n2")
 
 [node name="LeftBoundry" type="Area2D" parent="Bar" unique_id=1126928004]
