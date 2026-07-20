@@ -44,9 +44,10 @@ func _ready() -> void:
 	tokens_amount = tokens.size()
 	
 func start(regimen_speed: int, base_spin_up_time: float):
+		var delay = Util.random.randf_range(-0.5, +0.5)
 		tween = create_tween()
 		tween.tween_property(self, "speed", regimen_speed,
-		base_spin_up_time+Util.random.randf_range(-0.5, +0.5)).set_trans(Tween.TRANS_CIRC)
+		base_spin_up_time+delay).set_trans(Tween.TRANS_CIRC)
 
 func stop_at(target_index: int, set_stop_time: float):
 	result_sprite.texture = tokens[target_index]

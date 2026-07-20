@@ -22,14 +22,12 @@ func reset_state():
 
 func gen_minigames_order():
 	shuffled_games = Util.deterministic_shuffle(minigames)
-	print(Util.random.get_seed())
 	
 func set_minigames(games: Array[PackedScene]):
 	minigames = games
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("debug_key_1"):
-		print("Hello")
 		gen_minigames_order()
 
 func get_current_minigame_if_available() -> PackedScene:

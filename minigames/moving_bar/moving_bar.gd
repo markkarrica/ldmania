@@ -10,7 +10,7 @@ var pills_mult: Array[float] = [1.0, 0.9, 0.8]
 @onready var pill_direction = [-1.0,1.0][Util.random.randi_range(0,1)]
 @onready var cursor_area = $Cursor/Area2D
 @onready var bar_size = $Bar.size[0]
-var base_speed: int = 70.0
+var base_speed: int = 70
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if StateMachine.difficulty == 0:
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 

@@ -26,10 +26,6 @@ func stop(index, stop_time):
 	await get_tree().create_timer(stop_time +0.5).timeout
 	
 	emit_signal("animation_finished")
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_key_1"):
-		stop(2, 0.5)
 		
 	
 
