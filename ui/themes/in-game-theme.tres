@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://c7uhhv28mfwfr"]
+
+[ext_resource type="FontFile" uid="uid://ypgxwmxsx5mq" path="res://assets/fonts/LDMania3x5.ttf" id="1_qku4b"]
+
+[resource]
+default_font = ExtResource("1_qku4b")
+Label/colors/font_color = Color(0.92, 0.5826667, 0, 1)

@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @export var minigames: Array[PackedScene]
 @onready var slot_machine = $SlotMachine
@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 func _animate_slot_in():
 	var slot_tween = create_tween()
-	slot_tween.tween_property(slot_machine, "position:y", 207, 1.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	slot_tween.tween_property(slot_machine, "position:y", 55, 1.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
 	await slot_tween.finished
 	
@@ -28,7 +28,7 @@ func _animate_slot_in():
 
 func _animate_slot_out():
 	var slot_tween = create_tween()
-	slot_tween.tween_property(slot_machine, "position:y", 1000, 1.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	slot_tween.tween_property(slot_machine, "position:y", 200, 1.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
 	await slot_tween.finished
 	
@@ -47,10 +47,8 @@ func _load_next_minigame():
 	current_minigame.on_minigame_end.connect(_on_minigame_end)
 	add_child(current_minigame)
 	move_child(current_minigame, 1)
-	current_minigame.position.x = 254
-	current_minigame.position.y = 94
-	current_minigame.scale.x = 4
-	current_minigame.scale.y = 4
+	current_minigame.position.x = 64
+	current_minigame.position.y = 24
 
 
 func _on_minigame_end(is_success: bool, bonus_time_gained: int):

@@ -5,35 +5,94 @@
 [ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="4_mh84v"]
 [ext_resource type="PackedScene" uid="uid://dqs1rqgedc1je" path="res://minigames/moving_bar/moving_bar.tscn" id="4_rvjp5"]
 [ext_resource type="PackedScene" uid="uid://b3uyqaxqt1uk5" path="res://core/slot/slot-machine.tscn" id="5_rvjp5"]
+[ext_resource type="Texture2D" uid="uid://cb6x7mpb7bmm7" path="res://core/main/assets/button-yellow.png" id="5_sd7qy"]
+[ext_resource type="Texture2D" uid="uid://dhddybld0k5tc" path="res://core/main/assets/button-red.png" id="6_852q7"]
+[ext_resource type="Texture2D" uid="uid://b1d431ir55y5w" path="res://core/main/assets/button-blue.png" id="7_dhm5a"]
+[ext_resource type="Theme" uid="uid://c7uhhv28mfwfr" path="res://ui/themes/in-game-theme.tres" id="8_852q7"]
+[ext_resource type="FontFile" uid="uid://ypgxwmxsx5mq" path="res://assets/fonts/LDMania3x5.ttf" id="8_na1uf"]
 
-[node name="MainScene" type="Control" unique_id=703159878]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainScene" type="Node2D" unique_id=1888842053]
+scale = Vector2(4, 4)
 script = ExtResource("1_nec1f")
 minigames = Array[PackedScene]([ExtResource("4_rvjp5")])
 
-[node name="Background" type="TextureRect" parent="." unique_id=1636360684]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" type="Sprite2D" parent="." unique_id=1579229802]
 texture = ExtResource("3_lykkd")
+centered = false
 
-[node name="Cabinet" type="TextureRect" parent="." unique_id=2110396089]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Cabinet" type="Sprite2D" parent="." unique_id=2006243502]
 texture = ExtResource("4_mh84v")
+centered = false
+
+[node name="ButtonYellow" type="Sprite2D" parent="Cabinet" unique_id=386704085]
+position = Vector2(82, 167)
+texture = ExtResource("5_sd7qy")
+centered = false
+
+[node name="ButtonRed" type="Sprite2D" parent="Cabinet" unique_id=1102942699]
+position = Vector2(111, 167)
+texture = ExtResource("6_852q7")
+centered = false
+
+[node name="ButtonBlue" type="Sprite2D" parent="Cabinet" unique_id=257257603]
+position = Vector2(140, 167)
+texture = ExtResource("7_dhm5a")
+centered = false
+
+[node name="ScoreLabel2" type="Label" parent="Cabinet" unique_id=1423621592]
+offset_left = 12.25
+offset_top = 133.75
+offset_right = 43.25
+offset_bottom = 156.75
+theme = ExtResource("8_852q7")
+theme_override_fonts/font = ExtResource("8_na1uf")
+text = "SCORE"
+
+[node name="ScoreLabelNumber" type="Label" parent="Cabinet/ScoreLabel2" unique_id=1153807500]
+layout_mode = 0
+offset_left = -3.25
+offset_top = 9.25
+offset_right = 27.75
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("8_na1uf")
+text = "0000000"
+
+[node name="TimeLabel" type="Label" parent="Cabinet" unique_id=1175314794]
+offset_left = 12.25
+offset_top = 77.0
+offset_right = 43.25
+offset_bottom = 100.0
+theme = ExtResource("8_852q7")
+theme_override_fonts/font = ExtResource("8_na1uf")
+text = "TIME"
+
+[node name="TimeLabelNumber" type="Label" parent="Cabinet/TimeLabel" unique_id=1941498661]
+layout_mode = 0
+offset_left = -3.25
+offset_top = 9.25
+offset_right = 27.75
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("8_na1uf")
+text = "0000000"
+
+[node name="DiffLabel" type="Label" parent="Cabinet" unique_id=1168077771]
+offset_left = 12.25
+offset_top = 19.5
+offset_right = 43.25
+offset_bottom = 42.5
+theme = ExtResource("8_852q7")
+theme_override_fonts/font = ExtResource("8_na1uf")
+text = "DIFF"
+
+[node name="DiffLabelNumber" type="Label" parent="Cabinet/DiffLabel" unique_id=217296225]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 9.25
+offset_right = 28.0
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("8_na1uf")
+text = "0000000"
 
 [node name="SlotMachine" parent="." unique_id=1970859362 instance=ExtResource("5_rvjp5")]
-position = Vector2(338, 795)
+position = Vector2(87.75, 200)
+scale = Vector2(1, 1)
