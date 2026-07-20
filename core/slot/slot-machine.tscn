@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b3uyqaxqt1uk5"]
+
+[ext_resource type="Script" uid="uid://bjfxeoseny8" path="res://core/slot/slot_machine.gd" id="1_dp7kk"]
+[ext_resource type="Texture2D" uid="uid://btnrca83ahqmm" path="res://core/slot/assets/bezel.png" id="1_pl4f3"]
+[ext_resource type="PackedScene" uid="uid://dldoni6fh1hao" path="res://core/slot/reel.tscn" id="2_dl4mn"]
+
+[node name="SlotMachine" type="Node2D" unique_id=1970859362]
+scale = Vector2(4, 4)
+script = ExtResource("1_dp7kk")
+
+[node name="Reel3" parent="." unique_id=868968498 instance=ExtResource("2_dl4mn")]
+position = Vector2(133, 5)
+
+[node name="Reel2" parent="." unique_id=1010188127 instance=ExtResource("2_dl4mn")]
+position = Vector2(69, 5)
+
+[node name="Reel1" parent="." unique_id=1530974494 instance=ExtResource("2_dl4mn")]
+position = Vector2(5, 5)
+
+[node name="Bezel" type="Sprite2D" parent="." unique_id=1796197339]
+texture = ExtResource("1_pl4f3")
+centered = false

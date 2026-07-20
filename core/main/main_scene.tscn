@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cdlvvqfr56jg2" path="res://core/main/assets/background.png" id="3_lykkd"]
 [ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="4_mh84v"]
 [ext_resource type="PackedScene" uid="uid://dqs1rqgedc1je" path="res://minigames/moving_bar/moving_bar.tscn" id="4_rvjp5"]
+[ext_resource type="PackedScene" uid="uid://b3uyqaxqt1uk5" path="res://core/slot/slot-machine.tscn" id="5_rvjp5"]
 
 [node name="MainScene" type="Control" unique_id=703159878]
 layout_mode = 3
@@ -33,3 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_mh84v")
+
+[node name="SlotMachine" parent="." unique_id=1970859362 instance=ExtResource("5_rvjp5")]
+position = Vector2(338, 795)
