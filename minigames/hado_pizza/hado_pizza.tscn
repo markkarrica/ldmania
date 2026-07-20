@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://de6lwqasuqffk"]
+
+[ext_resource type="Script" uid="uid://d0mivoyh4khxc" path="res://minigames/hado_pizza/hado_pizza.gd" id="1_7clk5"]
+[ext_resource type="Texture2D" uid="uid://dg2n7xppq42q7" path="res://minigames/hado_pizza/assets/Pizza.png" id="2_4a7fo"]
+
+[node name="HadoPizza" type="Node2D" unique_id=1536346680]
+script = ExtResource("1_7clk5")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=235103203]
+offset_right = 200.0
+offset_bottom = 134.0
+
+[node name="Pizza" type="Sprite2D" parent="." unique_id=1995673200]
+position = Vector2(39, 93)
+scale = Vector2(2, 2)
+texture = ExtResource("2_4a7fo")
