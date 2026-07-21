@@ -1,10 +1,8 @@
 extends Node2D
-
-@export var minigames: Array[int]
 @onready var slot_machine = $SlotMachine
 @onready var slot_machine_resource = preload("res://core/slot/slot-machine.tscn")
 @onready var timer = $Timers/SlotTimer
-var slot_tokens : Array[CompressedTexture2D]
+var minigames: Array[int] = []
 var should_take_slot_input = false
 func _animate_slot_and_load_minigame():
 	# We wait for input/animations
@@ -23,11 +21,10 @@ func _animate_slot_and_load_minigame():
 	_load_next_minigame()
 
 func _ready() -> void:
+	for i in range(Games.GAMES_AMOUNT):
+		minigames.append(i)
+	print(minigames)
 	StateMachine.set_minigames(minigames)
-	for i in range(minigames.size()):
-		slot_tokens.append(Games.get_ctx2d(i))
-	slot_machine.tokens = slot_tokens
-	slot_machine.reset_state()
 	StateMachine.gen_minigames_order()
 	_animate_slot_and_load_minigame()
 
@@ -59,14 +56,9 @@ func _animate_slot_out():
 	slot_machine.queue_free()
 
 func _load_next_minigame():
-	var current_minigame_scene_number: int = StateMachine.get_current_minigame_if_available()
 	
-	if current_minigame_scene_number == -1:
-		#end of round
-		StateMachine.goto_next_round()
-		current_minigame_scene_number = StateMachine.get_current_minigame_if_available()
 	
-	var current_minigame: Minigame = Games.get_packed_scene(current_minigame_scene_number).instantiate()
+	var current_minigame: Minigame = Games.get_packed_scene(StateMachine.shuffled_games[StateMachine.current_minigame_index]).instantiate()
 	current_minigame.on_minigame_end.connect(_on_minigame_end)
 	add_child(current_minigame)
 	move_child(current_minigame, 1)
@@ -75,12 +67,19 @@ func _load_next_minigame():
 
 
 func _on_minigame_end(is_success: bool, bonus_time_gained: int):
+	StateMachine.current_minigame_index += 1
+	if StateMachine.current_minigame_index == Games.GAMES_AMOUNT:
+		# Do stuff for next round, then reset index and generate new games order
+		
+		StateMachine.current_minigame_index = 0
+		StateMachine.gen_minigames_order()
 	if is_success:
 		StateMachine.score += StateMachine.difficulty
 		# We wait for input/animations
+	# What if the round is over?
 	_animate_slot_and_load_minigame()
 
 func _input(event: InputEvent) -> void:
 	if should_take_slot_input && event.is_action_pressed("interact"):
-		slot_machine.stop(1, 1.5)
+		slot_machine.stop(StateMachine.shuffled_games[StateMachine.current_minigame_index], 1.5)
 		should_take_slot_input = false

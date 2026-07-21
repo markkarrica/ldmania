@@ -2,21 +2,25 @@
 
 [ext_resource type="Script" uid="uid://c57oybc5i6xxr" path="res://minigames/select_to_win/select_to_win.gd" id="1_tssmx"]
 
-[node name="FishingMinigame" type="Node2D" unique_id=1259982782]
+[node name="SelectToWin" type="Node2D" unique_id=1259982782]
 script = ExtResource("1_tssmx")
 
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=162191445]
+offset_right = 200.0
+offset_bottom = 140.0
+
 [node name="WinButton" type="Button" parent="." unique_id=1935971614]
-offset_left = 168.0
-offset_top = 171.0
-offset_right = 363.0
-offset_bottom = 236.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 166.0
+offset_bottom = 39.0
 text = "Click here to WIN :)"
 
 [node name="LoseButton" type="Button" parent="." unique_id=1475817024]
-offset_left = 385.0
-offset_top = 172.0
-offset_right = 580.0
-offset_bottom = 237.0
+offset_left = 20.0
+offset_top = 65.0
+offset_right = 181.0
+offset_bottom = 96.0
 text = "Click here to LOSE :("
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]

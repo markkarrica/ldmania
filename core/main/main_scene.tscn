@@ -13,7 +13,6 @@
 [node name="MainScene" type="Node2D" unique_id=1888842053]
 scale = Vector2(4, 4)
 script = ExtResource("1_nec1f")
-minigames = Array[int]([0, 1, 2])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1579229802]
 texture = ExtResource("3_lykkd")
@@ -43,6 +42,7 @@ offset_left = 12.25
 offset_top = 133.75
 offset_right = 43.25
 offset_bottom = 156.75
+mouse_filter = 1
 theme = ExtResource("8_852q7")
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "SCORE"
@@ -61,6 +61,7 @@ offset_left = 12.25
 offset_top = 77.0
 offset_right = 43.25
 offset_bottom = 100.0
+mouse_filter = 1
 theme = ExtResource("8_852q7")
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "TIME"
@@ -79,6 +80,7 @@ offset_left = 12.25
 offset_top = 19.5
 offset_right = 43.25
 offset_bottom = 42.5
+mouse_filter = 1
 theme = ExtResource("8_852q7")
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "DIFF"

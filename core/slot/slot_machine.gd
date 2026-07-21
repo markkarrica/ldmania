@@ -10,30 +10,21 @@ var reels_stopped: Array[bool] = [false, false, false]
 @export var tokens: Array[CompressedTexture2D]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for reel in reels:
-		reel.tokens = tokens
-		reel.reset_state()
-	
-func reset_state() -> void:
-	for reel in reels:
-		reel.reset_state()
-		reel.tokens = tokens
+	pass
+		
 	
 func start() -> void:
 	for reel in reels:
 		reel.start(regimen_speed, base_spin_up_time)
 		
-
 func stop(index, stop_time):
 	for reel in reels:
 		reel.stop_at(index, stop_time)
 	
-	await get_tree().create_timer(stop_time +0.5).timeout
+	await get_tree().create_timer(stop_time +0.15).timeout
 	
 	emit_signal("animation_finished")
-		
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

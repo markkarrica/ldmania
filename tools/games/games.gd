@@ -2,12 +2,13 @@ extends Node
 
 enum GAMES {
 	moving_bar,
-	select_to_win,
-	hado_pizza
+	hado_pizza,
+	select_to_win
 }
 
+const GAMES_AMOUNT = 3
+
 func get_packed_scene(game_enum):
-	return load("res://minigames/moving_bar/moving_bar.tscn")
 	match game_enum:
 		GAMES.moving_bar:
 			return load("res://minigames/moving_bar/moving_bar.tscn")
@@ -19,11 +20,11 @@ func get_packed_scene(game_enum):
 func get_ctx2d(game_enum):
 	match game_enum:
 		GAMES.moving_bar:
-			return load("res://core/main/assets/border.png")
+			return load("res://minigames/moving_bar/assets/slot_icon.png")
 		GAMES.hado_pizza:
-			return load("res://minigames/demo_payline_tokens/demo-token-2.png")
+			return load("res://minigames/hado_pizza/assets/slot_icon.png")
 		GAMES.select_to_win:
-			return load("res://minigames/demo_payline_tokens/demo-token-3.png")
+			return load("res://minigames/select_to_win/assets/slot-icon.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

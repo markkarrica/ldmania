@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LDMania"
-run/main_scene="uid://c05te61unhldb"
+run/main_scene="uid://cf78lu114wlvc"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://dactiyyten6ky"
 config/icon="res://assets/icon.svg"

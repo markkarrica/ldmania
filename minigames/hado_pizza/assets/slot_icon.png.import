@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg2n7xppq42q7"
-path="res://.godot/imported/Pizza.png-712ff72c2db1ac222afa6cd96be1faa3.ctex"
+uid="uid://wnc7jv67mklh"
+path="res://.godot/imported/slot_icon.png-3bf03db1bb4ad1830328f10b62935fac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/hado_pizza/assets/Pizza.png"
-dest_files=["res://.godot/imported/Pizza.png-712ff72c2db1ac222afa6cd96be1faa3.ctex"]
+source_file="res://minigames/hado_pizza/assets/slot_icon.png"
+dest_files=["res://.godot/imported/slot_icon.png-3bf03db1bb4ad1830328f10b62935fac.ctex"]
 
 [params]
 

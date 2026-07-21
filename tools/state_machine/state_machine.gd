@@ -26,20 +26,6 @@ func gen_minigames_order():
 func set_minigames(games: Array[int]):
 	minigames = games
 
-func _input(event: InputEvent):
-	if event.is_action_pressed("debug_key_1"):
-		gen_minigames_order()
-
-func get_current_minigame_if_available() -> int:
-	print(current_minigame_index)
-	print(shuffled_games.size())
-	# we check if we have done all minigames:
-	if current_minigame_index == shuffled_games.size():
-		return -1
-	else:
-		current_minigame_index += 1
-		return shuffled_games[current_minigame_index - 1]
-
 func goto_next_round():
 	current_minigame_index = 0
 	gen_minigames_order()

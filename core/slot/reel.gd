@@ -7,8 +7,6 @@ extends Node2D
 
 ## Token placement stuff
 @onready var sprite_height = current_sprite.texture.get_height()
-var tokens: Array[CompressedTexture2D]
-var tokens_amount: int
 var next_token = 2
 
 ## Animation stuff
@@ -18,30 +16,9 @@ var physics_based = true
 var stop_time: float
 var should_stop: bool = false
 
-func reset_state() -> void:
-	next_token = 2
-	current_sprite.visible = true
-	next_sprite.visible = true
-	result_sprite.visible = false
-	current_sprite.texture = tokens[0]
-	next_sprite.texture = tokens[1]
-	if tween: tween.kill()
-	should_stop = false
-	physics_based = true
-	current_sprite.position.y = 59
-	next_sprite.position.y = 0
-	result_sprite.position.y = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if tokens.size() == 0:
-		tokens = [load("res://minigames/demo_payline_tokens/demo-token-1.png"),
-		load("res://minigames/demo_payline_tokens/demo-token-2.png"),
-		load("res://minigames/demo_payline_tokens/demo-token-3.png")]
-	
-	current_sprite.texture = tokens[0]
-	next_sprite.texture = tokens[1]
-	tokens_amount = tokens.size()
+	pass
 	
 func start(regimen_speed: int, base_spin_up_time: float):
 		var delay = Util.random.randf_range(-0.5, +0.5)
@@ -50,14 +27,14 @@ func start(regimen_speed: int, base_spin_up_time: float):
 		base_spin_up_time+delay).set_trans(Tween.TRANS_CIRC)
 
 func stop_at(target_index: int, set_stop_time: float):
-	result_sprite.texture = tokens[target_index]
+	result_sprite.texture = Games.get_ctx2d(target_index)
 	stop_time = set_stop_time
 	should_stop = true
 	
 
 func raise_sprite_increase_token(sprite):
 	sprite.position.y = -sprite_height
-	sprite.texture = tokens[next_token]
+	sprite.texture = Games.get_ctx2d(StateMachine.minigames[next_token])
 	next_token += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,7 +50,7 @@ func _process(delta: float) -> void:
 		if next_sprite.position.y > sprite_height:
 			raise_sprite_increase_token(next_sprite)
 		
-		if next_token > tokens_amount-1:
+		if next_token > Games.GAMES_AMOUNT -1:
 			next_token = 0
 		if not should_stop:
 			return
