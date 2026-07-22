@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c05te61unhldb"]
 
 [ext_resource type="Script" uid="uid://cq15vcjmk1kh0" path="res://intro/intro.gd" id="1_alxvg"]
-[ext_resource type="PackedScene" uid="uid://bfus3f0wm3grg" path="res://ui/main_menu/main_menu.tscn" id="2_pxqmo"]
+[ext_resource type="PackedScene" uid="uid://dord4gnap6mj" path="res://intro/full_logo/full_logo.tscn" id="2_vyos2"]
 [ext_resource type="PackedScene" uid="uid://b8833655kko2e" path="res://intro/center_container.tscn" id="3_vjsr4"]
 [ext_resource type="Texture2D" uid="uid://hebqlqbjr36i" path="res://assets/intro/godot.png" id="4_vyos2"]
 [ext_resource type="Texture2D" uid="uid://cfo8yt1upwdoo" path="res://assets/intro/made-by.png" id="5_rsiac"]
@@ -19,7 +19,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_alxvg")
-next_scene = ExtResource("2_pxqmo")
+next_scene = ExtResource("2_vyos2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1442174812]
 layout_mode = 1

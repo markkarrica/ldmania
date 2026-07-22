@@ -4,6 +4,11 @@ extends Node2D
 @onready var timer = $Timers/SlotTimer
 var minigames: Array[int] = []
 var should_take_slot_input = false
+
+@onready var score_label: Label = $Cabinet/ScoreLabel2/ScoreLabelNumber
+@onready var time_label: Label = $Cabinet/TimeLabel/TimeLabelNumber
+@onready var diff_label: Label = $Cabinet/DiffLabel/DiffLabelNumber
+
 func _animate_slot_and_load_minigame():
 	# We wait for input/animations
 	_animate_slot_in()
@@ -25,6 +30,7 @@ func _ready() -> void:
 		minigames.append(i)
 	print(minigames)
 	StateMachine.set_minigames(minigames)
+	StateMachine.difficulty = 1
 	StateMachine.gen_minigames_order()
 	_animate_slot_and_load_minigame()
 
@@ -66,17 +72,29 @@ func _load_next_minigame():
 	current_minigame.position.y = 24
 
 
+
+func _process(_delta: float) -> void:
+	print(StateMachine.current_minigame_index)
+	# We shouldn't update these every frame because performance, still i don't care
+	time_label.text = str(StateMachine.time_left).substr(0,7)
+	diff_label.text = str(StateMachine.difficulty).substr(0,7)
+	score_label.text = str(StateMachine.score).substr(0,7)
+	# We should actually show the scientific notation if the numberis
+	# too big but idk how to do it properly yet
+	var exp_score_str = String.num_scientific(pow(Util.CONSTANT_E, 15))
+
 func _on_minigame_end(is_success: bool, bonus_time_gained: int):
 	StateMachine.current_minigame_index += 1
+	if is_success:
+		StateMachine.score += StateMachine.difficulty
 	if StateMachine.current_minigame_index == Games.GAMES_AMOUNT:
 		# Do stuff for next round, then reset index and generate new games order
 		
+		StateMachine.difficulty += 1
 		StateMachine.current_minigame_index = 0
 		StateMachine.gen_minigames_order()
-	if is_success:
-		StateMachine.score += StateMachine.difficulty
-		# We wait for input/animations
-	# What if the round is over?
+
+
 	_animate_slot_and_load_minigame()
 
 func _input(event: InputEvent) -> void:

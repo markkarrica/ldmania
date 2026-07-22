@@ -13,8 +13,6 @@ var pills_mult: Array[float] = [1.0, 0.9, 0.8]
 var base_speed: int = 70
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if StateMachine.difficulty == 0:
-		StateMachine.difficulty = 1
 	pill_speed = StateMachine.log_diff_scale()*base_speed
 	
 

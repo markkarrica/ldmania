@@ -1,8 +1,8 @@
 extends Node
 
-var time_left_ms = 0
+var time_left: float = 0
 var debug_code = 999999
-var difficulty = 0
+var difficulty: int = 0
 var score = 0
 var shuffled_games: Array[int]
 var minigames: Array[int]
@@ -16,7 +16,7 @@ func log_diff_scale():
 	return log(StateMachine.difficulty +1)
 
 func reset_state():
-	time_left_ms = 20*1000
+	time_left = 20
 	debug_code = 0
 	difficulty = 1
 
