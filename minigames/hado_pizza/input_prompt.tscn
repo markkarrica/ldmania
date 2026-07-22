@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://ccf3vgvww2ysj"]
 
 [ext_resource type="Script" uid="uid://b2df31xgr1xgx" path="res://minigames/hado_pizza/input_prompt.gd" id="1_dyb6n"]
-[ext_resource type="Texture2D" uid="uid://cl0tf5usboppj" path="res://minigames/hado_pizza/assets/UpArrow.png" id="2_v8st3"]
+[ext_resource type="Texture2D" uid="uid://cyf2cpdjuelou" path="res://minigames/hado_pizza/assets/UpArrow.png" id="2_v8st3"]
 
 [node name="InputPrompt" type="Node2D" unique_id=2064534793]
 script = ExtResource("1_dyb6n")
+directions = Array[int]([1, 2, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+wrap_after = 5
 
 [node name="UpArrow" type="Sprite2D" parent="." unique_id=1991797748]
-position = Vector2(16, 16)
+visible = false
+position = Vector2(8, 8)
 texture = ExtResource("2_v8st3")
