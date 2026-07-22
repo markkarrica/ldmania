@@ -9,12 +9,22 @@ extends Control
 @export_category("Title animation")
 @export var max_rotation: float = 15.0
 @export var swing_duration: float = 1.0
+@export var min_scale: float = 0.95
+@export var max_scale: float = 1.05
+@export var grow_duration: float = 2.5
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	title.rotation_degrees = max_rotation
-	
-	var title_tween = create_tween().set_loops()
-	
+@onready var title_tween = create_tween().set_loops()
+var current_tween = "scale"
+
+@onready var labels: Array[Label] = [$Node2D/ScoreLabel2/ScoreLabelNumber,
+					   $Node2D/DiffLabel/DiffLabelNumber,
+					   $Node2D/TimeLabel/TimeLabelNumber]
+
+func _swing_title():
+	title.scale = 4*Vector2(1,1)
+	current_tween = "swing"
+	title_tween.kill()
+	title_tween = create_tween().set_loops()
 	title_tween.tween_property(title, "rotation_degrees", -max_rotation, swing_duration) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_IN_OUT)
@@ -23,7 +33,32 @@ func _ready() -> void:
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_IN_OUT)
 
+func _grow_shrink():
+	title.rotation_degrees = 0
+	current_tween = "scale"
+	title_tween.kill()
+	title_tween = create_tween().set_loops()
+	title_tween.tween_property(title, "scale", 4*Vector2(max_scale, max_scale), grow_duration) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN_OUT)
+		
+	title_tween.tween_property(title, "scale", 4*Vector2(min_scale, min_scale), grow_duration) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN_OUT)
+	
+func randomize_labels():
+	for label in labels:
+		label.text = str(Util.random.randi_range(0, 9999999))
 
+
+func _ready() -> void:
+	title.rotation_degrees = max_rotation
+	randomize_labels()
+	
+	
+	
+	_grow_shrink()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 	#pass
@@ -61,3 +96,15 @@ func _on_dice_button_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file(settings_scene)
+
+
+func _on_easter_egg_pressed() -> void:
+	match current_tween:
+		"swing":
+			_grow_shrink()
+		"scale":
+			_swing_title()
+
+
+func _on_timer_timeout() -> void:
+	randomize_labels()

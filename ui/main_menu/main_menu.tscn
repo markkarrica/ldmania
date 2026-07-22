@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://d33g43qv50gpv" path="res://ui/main_menu/assets/buttons/settings-button-pressed.png" id="12_u2jyo"]
 [ext_resource type="Texture2D" uid="uid://8b2lfiubnrdu" path="res://ui/main_menu/assets/buttons/credits-button.png" id="13_bpbph"]
 [ext_resource type="Texture2D" uid="uid://ft8nxvh3d8mq" path="res://ui/main_menu/assets/buttons/credits-button-pressed.png" id="14_qewnw"]
+[ext_resource type="Theme" uid="uid://c7uhhv28mfwfr" path="res://ui/themes/in-game-theme.tres" id="16_u2jyo"]
+[ext_resource type="Texture2D" uid="uid://cb6x7mpb7bmm7" path="res://core/main/assets/button-yellow.png" id="17_db6af"]
+[ext_resource type="Texture2D" uid="uid://dhddybld0k5tc" path="res://core/main/assets/button-red.png" id="18_rkggs"]
+[ext_resource type="Texture2D" uid="uid://b1d431ir55y5w" path="res://core/main/assets/button-blue.png" id="19_1bnxd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r2n2"]
 content_margin_left = 30.0
@@ -27,6 +31,16 @@ content_margin_left = 30.0
 content_margin_bottom = 15.0
 texture = ExtResource("7_4e78x")
 region_rect = Rect2(0, 0, 39, 15)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4r2n2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyl1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_db6af"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkggs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bnxd"]
 
 [node name="MainMenu" type="Control" unique_id=1104091717]
 layout_mode = 3
@@ -175,8 +189,102 @@ mouse_filter = 2
 texture = ExtResource("3_omy8q")
 stretch_mode = 2
 
+[node name="EasterEgg" type="Button" parent="Title" unique_id=5173738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4r2n2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tyl1c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_db6af")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rkggs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1bnxd")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1438370615]
+scale = Vector2(4, 4)
+
+[node name="ScoreLabel2" type="Label" parent="Node2D" unique_id=243419677]
+offset_left = 11.75
+offset_top = 134.0
+offset_right = 42.75
+offset_bottom = 157.0
+mouse_filter = 1
+theme = ExtResource("16_u2jyo")
+theme_override_fonts/font = ExtResource("6_xio0d")
+text = "SCORE"
+
+[node name="ScoreLabelNumber" type="Label" parent="Node2D/ScoreLabel2" unique_id=954141968]
+layout_mode = 0
+offset_left = -3.25
+offset_top = 9.25
+offset_right = 27.75
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("6_xio0d")
+text = "0000000"
+
+[node name="TimeLabel" type="Label" parent="Node2D" unique_id=637439196]
+offset_left = 12.25
+offset_top = 76.75
+offset_right = 43.25
+offset_bottom = 99.75
+mouse_filter = 1
+theme = ExtResource("16_u2jyo")
+theme_override_fonts/font = ExtResource("6_xio0d")
+text = "TIME"
+
+[node name="TimeLabelNumber" type="Label" parent="Node2D/TimeLabel" unique_id=363186647]
+layout_mode = 0
+offset_left = -3.25
+offset_top = 9.25
+offset_right = 27.75
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("6_xio0d")
+text = "0000000"
+
+[node name="DiffLabel" type="Label" parent="Node2D" unique_id=2070145823]
+offset_left = 11.5
+offset_top = 20.0
+offset_right = 42.5
+offset_bottom = 43.0
+mouse_filter = 1
+theme = ExtResource("16_u2jyo")
+theme_override_fonts/font = ExtResource("6_xio0d")
+text = "DIFF"
+
+[node name="DiffLabelNumber" type="Label" parent="Node2D/DiffLabel" unique_id=86455992]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 9.25
+offset_right = 28.0
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("6_xio0d")
+text = "0000000"
+
+[node name="ButtonYellow" type="Sprite2D" parent="." unique_id=24536458]
+position = Vector2(376, 692)
+scale = Vector2(4, 4)
+texture = ExtResource("17_db6af")
+
+[node name="ButtonRed" type="Sprite2D" parent="." unique_id=536056146]
+position = Vector2(492, 692)
+scale = Vector2(4, 4)
+texture = ExtResource("18_rkggs")
+
+[node name="ButtonBlue" type="Sprite2D" parent="." unique_id=306573753]
+position = Vector2(608, 692)
+scale = Vector2(4, 4)
+texture = ExtResource("19_1bnxd")
+
+[node name="LabelsTimer" type="Timer" parent="." unique_id=1869367278]
+wait_time = 0.5
+autostart = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Seed text" to="." method="_on_seed_text_text_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/Button" to="." method="_on_settings_pressed"]
 [connection signal="timeout" from="SeedWrongTimer" to="." method="_on_seed_wrong_timer_timeout"]
+[connection signal="pressed" from="Title/EasterEgg" to="." method="_on_easter_egg_pressed"]
+[connection signal="timeout" from="LabelsTimer" to="." method="_on_timer_timeout"]
