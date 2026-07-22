@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyf2cpdjuelou"
-path="res://.godot/imported/UpArrow.png-9700e7a0a0710a4d804127b039bf9993.ctex"
+uid="uid://wnc7jv67mklh"
+path="res://.godot/imported/slot_icon.png-ddebfd686114ce4dfc974d6048465a66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/hado_pizza/assets/UpArrow.png"
-dest_files=["res://.godot/imported/UpArrow.png-9700e7a0a0710a4d804127b039bf9993.ctex"]
+source_file="res://minigames/pizza/assets/slot_icon.png"
+dest_files=["res://.godot/imported/slot_icon.png-ddebfd686114ce4dfc974d6048465a66.ctex"]
 
 [params]
 

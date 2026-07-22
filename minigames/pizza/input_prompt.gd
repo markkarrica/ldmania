@@ -2,6 +2,7 @@ extends Node2D
 
 class_name InputPrompt
 signal end(success: bool)
+signal cut_pizza(slice_number: int)
 
 enum Direction {
 	up = 1,
@@ -81,6 +82,7 @@ func _input(event: InputEvent) -> void:
 		var tween = create_tween()
 		tween.tween_property(current_direction, "modulate:a", 0.6, 0.2).set_ease(Tween.EASE_IN_OUT)
 		correct_guesses += 1
+		emit_signal("cut_pizza", correct_guesses)
 		if(correct_guesses == len(directions)):
 			emit_signal("end", true)
 	elif(is_dir_pressed): emit_signal("end", false)

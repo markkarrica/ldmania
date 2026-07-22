@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://de6lwqasuqffk"]
+
+[ext_resource type="Script" uid="uid://d0mivoyh4khxc" path="res://minigames/pizza/pizza.gd" id="1_xenxx"]
+[ext_resource type="Texture2D" uid="uid://602klnn7i7vp" path="res://minigames/pizza/assets/pizza.png" id="2_nimag"]
+[ext_resource type="PackedScene" uid="uid://ccf3vgvww2ysj" path="res://minigames/pizza/input_prompt.tscn" id="3_1hu3y"]
+
+[node name="HadoPizza" type="Node2D" unique_id=1536346680]
+script = ExtResource("1_xenxx")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=235103203]
+offset_right = 200.0
+offset_bottom = 134.0
+
+[node name="Pizza" type="Sprite2D" parent="." unique_id=1995673200]
+position = Vector2(164, 98)
+texture = ExtResource("2_nimag")
+
+[node name="InputPrompt" parent="." unique_id=2064534793 instance=ExtResource("3_1hu3y")]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1293483647]
+
+[connection signal="cut_pizza" from="InputPrompt" to="." method="_cut_pizza"]
+[connection signal="end" from="InputPrompt" to="." method="_on_input_prompt_end"]

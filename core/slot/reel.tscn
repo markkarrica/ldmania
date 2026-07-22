@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfnapih6276i7" path="res://core/slot/reel.gd" id="1_v64a0"]
 [ext_resource type="Texture2D" uid="uid://bhperrswrqr5m" path="res://minigames/select_to_win/assets/slot-icon.png" id="2_81r17"]
-[ext_resource type="Texture2D" uid="uid://wnc7jv67mklh" path="res://minigames/hado_pizza/assets/slot_icon.png" id="3_qh23p"]
+[ext_resource type="Texture2D" uid="uid://wnc7jv67mklh" path="res://minigames/pizza/assets/slot_icon.png" id="3_qh23p"]
 
 [node name="Reel" type="Node2D" unique_id=868968498]
 script = ExtResource("1_v64a0")
