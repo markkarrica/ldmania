@@ -5,8 +5,6 @@
 
 [node name="InputPrompt" type="Node2D" unique_id=2064534793]
 script = ExtResource("1_dyb6n")
-directions = Array[int]([1, 2, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-wrap_after = 5
 
 [node name="UpArrow" type="Sprite2D" parent="." unique_id=1991797748]
 visible = false

@@ -16,5 +16,5 @@ position = Vector2(164, 98)
 texture = ExtResource("2_7clk5")
 
 [node name="InputPrompt" parent="." unique_id=2064534793 instance=ExtResource("3_4a7fo")]
-
-[connection signal="end" from="InputPrompt" to="." method="_on_input_prompt_end"]
+directions = Array[int]([1, 2, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+wrap_after = 10
