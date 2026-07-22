@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cb6x7mpb7bmm7" path="res://core/main/assets/button-yellow.png" id="17_db6af"]
 [ext_resource type="Texture2D" uid="uid://dhddybld0k5tc" path="res://core/main/assets/button-red.png" id="18_rkggs"]
 [ext_resource type="Texture2D" uid="uid://b1d431ir55y5w" path="res://core/main/assets/button-blue.png" id="19_1bnxd"]
+[ext_resource type="AudioStream" uid="uid://cynjmh2ijgut4" path="res://assets/audio/music/main_menu.wav" id="20_rkggs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r2n2"]
 content_margin_left = 30.0
@@ -281,6 +282,10 @@ texture = ExtResource("19_1bnxd")
 wait_time = 0.5
 autostart = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=292060250]
+stream = ExtResource("20_rkggs")
+autoplay = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Seed text" to="." method="_on_seed_text_text_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_dice_button_pressed"]
@@ -288,3 +293,4 @@ autostart = true
 [connection signal="timeout" from="SeedWrongTimer" to="." method="_on_seed_wrong_timer_timeout"]
 [connection signal="pressed" from="Title/EasterEgg" to="." method="_on_easter_egg_pressed"]
 [connection signal="timeout" from="LabelsTimer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

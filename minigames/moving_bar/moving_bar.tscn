@@ -6,7 +6,7 @@
 size = Vector2(40, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r2n2"]
-size = Vector2(20, 29)
+size = Vector2(395, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyl1c"]
 size = Vector2(7, 40)
@@ -41,13 +41,13 @@ shape = SubResource("RectangleShape2D_nb2x5")
 [node name="RightBoundry" type="Area2D" parent="Bar" unique_id=2047753405]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/RightBoundry" unique_id=450111476]
-position = Vector2(203, 3.75)
+position = Vector2(390, 4.75)
 shape = SubResource("RectangleShape2D_4r2n2")
 
 [node name="LeftBoundry" type="Area2D" parent="Bar" unique_id=1126928004]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/LeftBoundry" unique_id=46820917]
-position = Vector2(-10, 4.5)
+position = Vector2(-198, 4.75)
 shape = SubResource("RectangleShape2D_4r2n2")
 
 [node name="Cursor" type="ColorRect" parent="." unique_id=629429332]

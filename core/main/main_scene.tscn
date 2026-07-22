@@ -10,6 +10,286 @@
 [ext_resource type="Theme" uid="uid://c7uhhv28mfwfr" path="res://ui/themes/in-game-theme.tres" id="8_852q7"]
 [ext_resource type="FontFile" uid="uid://ypgxwmxsx5mq" path="res://assets/fonts/LDMania3x5.ttf" id="8_na1uf"]
 
+[sub_resource type="Animation" id="Animation_sd7qy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.92, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5826667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cabinet/DiffLabel/Plus:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(16.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cabinet/DiffLabel/Plus:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.92, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5826667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cabinet/ScoreLabel2/Plus:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(16.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cabinet/ScoreLabel2/Plus:position:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_852q7"]
+resource_name = "added_diff"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.92, -0.25, 0, 0.25, 0, 0.92, -0.03412075, 0, 0, 0, 0.92, -0.09865471, 0, 0.0018388431, 0, 0.92, -0.10049355, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.79703873, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.5826667, -0.25, 0, 0.25, 0, 0.5826667, -0.03412075, 0, 0, 0, 0.5826667, -0.09865471, 0, 0.0018388431, 0, 0.5826667, -0.10049355, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.79703873, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.03412075, 0, 0, 0, 0, -0.09865471, 0, 0.0018388431, 0, 0, -0.10049355, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.79703873, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cabinet/DiffLabel/Plus:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.03412075, -0.16666667, 0, 0, 1, -0.09865471, 0.16361699, 0.0018388431, -0.0030496868, 0, -0.10049355, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.79703873, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cabinet/DiffLabel/Plus:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0, 0, 2),
+"points": PackedFloat32Array(16.5, -0.25, 0, 0.25, 0, 16.5, -0.032799557, 0, 0, 0, 16.5, -0.25, 0, 0.25, 0, 16.5, -0.032799557, 0, 0, 0, 16.5, -0.25, 0, 0.25, 0, 16.5, -0.03397756, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.19679733, 0.44726664, 0.6047045, 0.79613465, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cabinet/DiffLabel/Plus:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0, 0, 2),
+"points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0, -12.43, -0.032799557, 0.5300001, 0, 0, -9.25, -0.25, 0, 0.25, 0, -12.43, -0.032799557, 0.5300001, 0, 0, -9.25, -0.25, 0, 0.25, 0, -12.915, -0.03397756, 0.6108334, 0, 0),
+"times": PackedFloat32Array(0, 0.19679733, 0.44726664, 0.6047045, 0.79613465, 1)
+}
+
+[sub_resource type="Animation" id="Animation_dhm5a"]
+resource_name = "added_score"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0),
+"points": PackedFloat32Array(0.92, 0, 0, 0.033333335, 0, 0.92, 0, 0, 0.13333334, 0, 0.92, -0.10000001, 0, 0.03333333, 0, 0.92, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0),
+"points": PackedFloat32Array(0.5826667, 0, 0, 0.033333335, 0, 0.5826667, 0, 0, 0.13333334, 0, 0.5826667, -0.10000001, 0, 0.03333333, 0, 0.5826667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.033333335, 0, 0, 0, 0, 0.13333334, 0, 0, -0.10000001, 0, 0.03333333, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cabinet/ScoreLabel2/Plus:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.033333335, 0.16666667, 1, 0, 0, 0.13333334, -0.16666667, 1, -0.10000001, 0.12500001, 0.03333333, -0.041666664, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cabinet/ScoreLabel2/Plus:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(16.5, -0.25, 0, 0.25, 0, 16.5, -0.03369409, 0, 0, 0, 16.5, -0.03399227, 0, 0, 0, 16.5, -0.032799557, 0, 0, 0, 16.5, -0.031308662, 0, 0, 0, 16.5, -0.034872096, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.20216453, 0.40611812, 0.60291547, 0.79076743, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cabinet/ScoreLabel2/Plus:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0, -13.21, -0.03369409, 0.65999997, 0, 0, -8.035, -0.03399227, -0.86250013, 0, 0, -14.94, -0.032799557, 1.1508332, 0, 0, -9.26, -0.031308662, -0.9466666, 0, 0, -12.165, -0.034872096, 0.48416662, 0, 0),
+"times": PackedFloat32Array(0, 0.20216453, 0.40611812, 0.60291547, 0.79076743, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_na1uf"]
+_data = {
+&"RESET": SubResource("Animation_sd7qy"),
+&"added_diff": SubResource("Animation_852q7"),
+&"added_score": SubResource("Animation_dhm5a")
+}
+
 [node name="MainScene" type="Node2D" unique_id=1888842053]
 scale = Vector2(4, 4)
 script = ExtResource("1_nec1f")
@@ -44,6 +324,7 @@ offset_right = 43.25
 offset_bottom = 156.75
 mouse_filter = 1
 theme = ExtResource("8_852q7")
+theme_override_colors/font_color = Color(0.92, 0.5826667, 0, 1)
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "SCORE"
 
@@ -55,6 +336,15 @@ offset_right = 27.75
 offset_bottom = 32.25
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "0000000"
+
+[node name="Plus" type="Label" parent="Cabinet/ScoreLabel2" unique_id=237208554]
+layout_mode = 0
+offset_left = 16.5
+offset_top = -9.25
+offset_right = 56.5
+offset_bottom = 1.75
+theme_override_colors/font_color = Color(0.92, 0.5826667, 0, 0)
+text = "+++"
 
 [node name="TimeLabel" type="Label" parent="Cabinet" unique_id=1175314794]
 offset_left = 12.25
@@ -75,6 +365,15 @@ offset_bottom = 32.25
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "0000000"
 
+[node name="Plus" type="Label" parent="Cabinet/TimeLabel" unique_id=1684273422]
+visible = false
+layout_mode = 0
+offset_left = 16.5
+offset_top = -9.25
+offset_right = 56.5
+offset_bottom = 1.75
+text = "+++"
+
 [node name="DiffLabel" type="Label" parent="Cabinet" unique_id=1168077771]
 offset_left = 12.25
 offset_top = 19.5
@@ -94,6 +393,15 @@ offset_bottom = 32.25
 theme_override_fonts/font = ExtResource("8_na1uf")
 text = "0000000"
 
+[node name="Plus" type="Label" parent="Cabinet/DiffLabel" unique_id=1760823382]
+layout_mode = 0
+offset_left = 16.5
+offset_top = -9.25
+offset_right = 56.5
+offset_bottom = 1.75
+theme_override_colors/font_color = Color(0.92, 0.5826667, 0, 0)
+text = "+++"
+
 [node name="SlotMachine" parent="." unique_id=1970859362 instance=ExtResource("5_rvjp5")]
 position = Vector2(65, 200)
 scale = Vector2(1, 1)
@@ -102,3 +410,6 @@ scale = Vector2(1, 1)
 
 [node name="SlotTimer" type="Timer" parent="Timers" unique_id=1400433981]
 wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=588216291]
+libraries/ = SubResource("AnimationLibrary_na1uf")

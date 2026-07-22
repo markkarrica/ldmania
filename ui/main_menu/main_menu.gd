@@ -5,7 +5,7 @@ extends Control
 @onready var seed_wrong_timer = $SeedWrongTimer
 @onready var title = $Title
 @export_file("*.tscn") var settings_scene: String
-
+@onready var music: AudioStreamPlayer = $AudioStreamPlayer
 @export_category("Title animation")
 @export var max_rotation: float = 15.0
 @export var swing_duration: float = 1.0
@@ -108,3 +108,12 @@ func _on_easter_egg_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	randomize_labels()
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	print("Hello")
+	music.play()
+
+
+func _on_audio_stream_player_finished() -> void:
+	music.play()

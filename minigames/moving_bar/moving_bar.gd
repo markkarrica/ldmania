@@ -28,12 +28,12 @@ func _physics_process(_delta: float) -> void:
 
 func _on_right_boundry_area_entered(area: Area2D) -> void:
 	if area.name == "PillArea":
-		pill_direction *= -1
+		pill_direction = -1
 
 
 func _on_left_boundry_area_entered(area: Area2D) -> void:
 	if area.name == "PillArea":
-		pill_direction *= -1
+		pill_direction = 1
 
 func _input(event):
 	if event.is_action_pressed("interact"):

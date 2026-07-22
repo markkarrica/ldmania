@@ -5,6 +5,7 @@ extends Node2D
 var minigames: Array[int] = []
 var should_take_slot_input = false
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var score_label: Label = $Cabinet/ScoreLabel2/ScoreLabelNumber
 @onready var time_label: Label = $Cabinet/TimeLabel/TimeLabelNumber
 @onready var diff_label: Label = $Cabinet/DiffLabel/DiffLabelNumber
@@ -28,9 +29,10 @@ func _animate_slot_and_load_minigame():
 func _ready() -> void:
 	for i in range(Games.GAMES_AMOUNT):
 		minigames.append(i)
-	print(minigames)
 	StateMachine.set_minigames(minigames)
 	StateMachine.difficulty = 1
+	animation_player.play("added_diff")
+	
 	StateMachine.gen_minigames_order()
 	_animate_slot_and_load_minigame()
 
@@ -71,26 +73,48 @@ func _load_next_minigame():
 	current_minigame.position.x = 64
 	current_minigame.position.y = 24
 
+func _to_scientific_string(given_num: float, max_len: int) -> String:
+	var num
+	var extra = 0
+	if given_num > 1000000000000000000:
+		num = given_num
+		extra = 2
+	else:
+		num = int(given_num)
+	var num_str = str(num)
+	var n_len = num_str.length()
+	if n_len <= max_len:
+		return num_str
+	var fl = num/pow(10, n_len-1-extra)
+	var integer_part = str(int(fl))
+	var decimals = str(fl).split(".")[1]
+	var exponent = "e%d" % (n_len-1)
+	var final_number = "%s . %s %s" % [integer_part, decimals.left(7-2-exponent.length()), exponent]
+	final_number = final_number.replace(" ", "")
+	return final_number
+
 
 
 func _process(_delta: float) -> void:
-	print(StateMachine.current_minigame_index)
 	# We shouldn't update these every frame because performance, still i don't care
 	time_label.text = str(StateMachine.time_left).substr(0,7)
 	diff_label.text = str(StateMachine.difficulty).substr(0,7)
-	score_label.text = str(StateMachine.score).substr(0,7)
+	#print(StateMachine.score)
+	score_label.text = StateMachine.exp_score
 	# We should actually show the scientific notation if the numberis
 	# too big but idk how to do it properly yet
-	var exp_score_str = String.num_scientific(pow(Util.CONSTANT_E, 15))
 
 func _on_minigame_end(is_success: bool, bonus_time_gained: int):
 	StateMachine.current_minigame_index += 1
 	if is_success:
 		StateMachine.score += StateMachine.difficulty
+		animation_player.play("added_score")
+		StateMachine.exp_score = str(_to_scientific_string(pow(Util.CONSTANT_E, StateMachine.score)-1, 7))
 	if StateMachine.current_minigame_index == Games.GAMES_AMOUNT:
 		# Do stuff for next round, then reset index and generate new games order
 		
 		StateMachine.difficulty += 1
+		animation_player.play("added_diff")
 		StateMachine.current_minigame_index = 0
 		StateMachine.gen_minigames_order()
 
