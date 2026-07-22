@@ -10,6 +10,10 @@ var should_take_slot_input = false
 @onready var time_label: Label = $Cabinet/TimeLabel/TimeLabelNumber
 @onready var diff_label: Label = $Cabinet/DiffLabel/DiffLabelNumber
 
+@onready var win_player: AudioStreamPlayer = $PlayerWinMinigame
+@onready var lose_player: AudioStreamPlayer = $PlayerLoseMinigame
+@onready var round_player: AudioStreamPlayer = $PlayerRoundCompleted
+
 func _animate_slot_and_load_minigame():
 	# We wait for input/animations
 	_animate_slot_in()
@@ -107,9 +111,12 @@ func _process(_delta: float) -> void:
 func _on_minigame_end(is_success: bool, bonus_time_gained: int):
 	StateMachine.current_minigame_index += 1
 	if is_success:
+		win_player.play()
 		StateMachine.score += StateMachine.difficulty
 		animation_player.play("added_score")
 		StateMachine.exp_score = str(_to_scientific_string(pow(Util.CONSTANT_E, StateMachine.score)-1, 7))
+	else:
+		lose_player.play()
 	if StateMachine.current_minigame_index == Games.GAMES_AMOUNT:
 		# Do stuff for next round, then reset index and generate new games order
 		
@@ -117,6 +124,12 @@ func _on_minigame_end(is_success: bool, bonus_time_gained: int):
 		animation_player.play("added_diff")
 		StateMachine.current_minigame_index = 0
 		StateMachine.gen_minigames_order()
+		if is_success:
+			await win_player.finished
+			round_player.play()
+		else:
+			await lose_player.finished
+			round_player.play()
 
 
 	_animate_slot_and_load_minigame()

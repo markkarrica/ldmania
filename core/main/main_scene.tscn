@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b1d431ir55y5w" path="res://core/main/assets/button-blue.png" id="7_dhm5a"]
 [ext_resource type="Theme" uid="uid://c7uhhv28mfwfr" path="res://ui/themes/in-game-theme.tres" id="8_852q7"]
 [ext_resource type="FontFile" uid="uid://ypgxwmxsx5mq" path="res://assets/fonts/LDMania3x5.ttf" id="8_na1uf"]
+[ext_resource type="AudioStream" uid="uid://dqkd4cbxductb" path="res://assets/audio/sfx/you_won.wav" id="10_na1uf"]
+[ext_resource type="AudioStream" uid="uid://1q0i2j4jjm8c" path="res://assets/audio/sfx/you_lost.wav" id="11_ww4nf"]
+[ext_resource type="AudioStream" uid="uid://dhwbn4rpyyf2p" path="res://assets/audio/sfx/round_completed.wav" id="12_fgrs6"]
 
 [sub_resource type="Animation" id="Animation_sd7qy"]
 length = 0.001
@@ -413,3 +416,12 @@ wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=588216291]
 libraries/ = SubResource("AnimationLibrary_na1uf")
+
+[node name="PlayerWinMinigame" type="AudioStreamPlayer" parent="." unique_id=1347419225]
+stream = ExtResource("10_na1uf")
+
+[node name="PlayerLoseMinigame" type="AudioStreamPlayer" parent="." unique_id=884234438]
+stream = ExtResource("11_ww4nf")
+
+[node name="PlayerRoundCompleted" type="AudioStreamPlayer" parent="." unique_id=821572027]
+stream = ExtResource("12_fgrs6")
