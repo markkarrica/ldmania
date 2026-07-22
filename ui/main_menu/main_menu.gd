@@ -1,7 +1,7 @@
 extends Control
 
 @export_file("*.tscn") var play_scene: String
-@onready var seed_text = $"MarginContainer/VBoxContainer/HBoxContainer/Seed text"
+@onready var seed_text = $"MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Seed text"
 @onready var seed_wrong_timer = $SeedWrongTimer
 @onready var title = $Title
 @export_file("*.tscn") var settings_scene: String
@@ -32,7 +32,7 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	if !seed_text.text.is_valid_int():
 		seed_text.text = ""
-		seed_text.placeholder_text = "Seed not valid"
+		seed_text.placeholder_text = "SEED NOT VALID"
 		seed_text.modulate = Color.RED
 		seed_wrong_timer.start()
 		return
@@ -53,7 +53,7 @@ func _on_seed_text_text_changed(new_text: String) -> void:
 
 
 func _on_seed_wrong_timer_timeout() -> void:
-	seed_text.placeholder_text = "Numeric seed"
+	seed_text.placeholder_text = "NUMERIC SEED"
 	seed_text.modulate = Color.WHITE
 
 func _on_dice_button_pressed() -> void:

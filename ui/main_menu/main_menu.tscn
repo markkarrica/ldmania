@@ -1,7 +1,32 @@
 [gd_scene format=3 uid="uid://bfus3f0wm3grg"]
 
 [ext_resource type="Script" uid="uid://jbqjw1seruke" path="res://ui/main_menu/main_menu.gd" id="1_omy8q"]
-[ext_resource type="Texture2D" uid="uid://cf1smdbsf7co1" path="res://ui/main_menu/icons/dice.png" id="3_3c04x"]
+[ext_resource type="Texture2D" uid="uid://cdlvvqfr56jg2" path="res://core/main/assets/background.png" id="2_3c04x"]
+[ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="2_i5wg5"]
+[ext_resource type="Texture2D" uid="uid://dv37ws446kfvp" path="res://ui/main_menu/assets/logo-small.png" id="3_omy8q"]
+[ext_resource type="Texture2D" uid="uid://c7qlrk22tvofy" path="res://ui/main_menu/assets/buttons/play-button.png" id="4_w2r0d"]
+[ext_resource type="Texture2D" uid="uid://ce8jtxd0ahqv8" path="res://ui/main_menu/assets/buttons/play-button-pressed.png" id="5_4e78x"]
+[ext_resource type="Texture2D" uid="uid://rvp2sy42ennl" path="res://ui/main_menu/assets/buttons/text-label.png" id="6_s4pem"]
+[ext_resource type="FontFile" uid="uid://ypgxwmxsx5mq" path="res://assets/fonts/LDMania3x5.ttf" id="6_xio0d"]
+[ext_resource type="Texture2D" uid="uid://4c4rdkis3syb" path="res://ui/main_menu/assets/buttons/text-label-alt.png" id="7_4e78x"]
+[ext_resource type="Texture2D" uid="uid://6d0xxeowigm4" path="res://ui/main_menu/assets/buttons/dice-button.png" id="7_xio0d"]
+[ext_resource type="Texture2D" uid="uid://cf0r1vdlt3jil" path="res://ui/main_menu/assets/buttons/dice-button-pressed.png" id="8_tf5ef"]
+[ext_resource type="Texture2D" uid="uid://t0akfm5wsah0" path="res://ui/main_menu/assets/buttons/settings-button.png" id="11_lknku"]
+[ext_resource type="Texture2D" uid="uid://d33g43qv50gpv" path="res://ui/main_menu/assets/buttons/settings-button-pressed.png" id="12_u2jyo"]
+[ext_resource type="Texture2D" uid="uid://8b2lfiubnrdu" path="res://ui/main_menu/assets/buttons/credits-button.png" id="13_bpbph"]
+[ext_resource type="Texture2D" uid="uid://ft8nxvh3d8mq" path="res://ui/main_menu/assets/buttons/credits-button-pressed.png" id="14_qewnw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r2n2"]
+content_margin_left = 30.0
+content_margin_bottom = 15.0
+texture = ExtResource("6_s4pem")
+region_rect = Rect2(0, 0, 39, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4pem"]
+content_margin_left = 30.0
+content_margin_bottom = 15.0
+texture = ExtResource("7_4e78x")
+region_rect = Rect2(0, 0, 39, 15)
 
 [node name="MainMenu" type="Control" unique_id=1104091717]
 layout_mode = 3
@@ -13,6 +38,24 @@ grow_vertical = 2
 script = ExtResource("1_omy8q")
 play_scene = "uid://cf78lu114wlvc"
 settings_scene = "uid://btc56htmas36s"
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1145461952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3c04x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=166069263]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i5wg5")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=304578111]
 layout_mode = 0
@@ -28,25 +71,41 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.27
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1220916851]
-custom_minimum_size = Vector2(0, 90)
+[node name="PlayButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=317836474]
+custom_minimum_size = Vector2(230, 90)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Play"
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource("4_w2r0d")
+texture_pressed = ExtResource("5_4e78x")
+stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1355007252]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1865332752]
 layout_mode = 2
+theme_override_constants/margin_left = 93
 
-[node name="Seed text" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1026314295]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1355007252]
 layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Numeric seed"
+size_flags_horizontal = 4
+
+[node name="Seed text" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1026314295]
+custom_minimum_size = Vector2(230, 90)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_xio0d")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_4r2n2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_s4pem")
+placeholder_text = "NUMERIC SEED"
 virtual_keyboard_type = 3
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1334369863]
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1334369863]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-texture_normal = ExtResource("3_3c04x")
-texture_pressed = ExtResource("3_3c04x")
+texture_normal = ExtResource("7_xio0d")
+texture_pressed = ExtResource("8_tf5ef")
+stretch_mode = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=933306545]
 custom_minimum_size = Vector2(0, 60)
@@ -58,18 +117,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 30
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1490158886]
+[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=478456387]
+custom_minimum_size = Vector2(230, 90)
+custom_maximum_size = Vector2(230, 90)
 layout_mode = 2
-text = "Settings"
+size_flags_horizontal = 8
+texture_normal = ExtResource("11_lknku")
+texture_pressed = ExtResource("12_u2jyo")
+stretch_mode = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1229064079]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 30
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=1919990923]
+[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=2092318232]
+custom_minimum_size = Vector2(230, 90)
+custom_maximum_size = Vector2(230, 90)
 layout_mode = 2
-text = "Credits"
+texture_normal = ExtResource("13_bpbph")
+texture_pressed = ExtResource("14_qewnw")
+stretch_mode = 4
 
 [node name="SeedWrongTimer" type="Timer" parent="." unique_id=389229971]
 
@@ -78,17 +146,37 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -34.5
-offset_top = 70.445
-offset_right = 35.5
-offset_bottom = 94.44498
+offset_left = -36.0
+offset_top = 148.0
+offset_right = 34.0
+offset_bottom = 171.99997
 grow_horizontal = 2
 scale = Vector2(4, 4)
 pivot_offset = Vector2(35, 12)
+mouse_filter = 1
 text = "LDMania"
 
+[node name="TextureRect" type="TextureRect" parent="Title" unique_id=272017737]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.125
+offset_top = -9.3612385
+offset_right = 359.875
+offset_bottom = 170.63876
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-59, -28)
+mouse_filter = 2
+texture = ExtResource("3_omy8q")
+stretch_mode = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/Seed text" to="." method="_on_seed_text_text_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_dice_button_pressed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Seed text" to="." method="_on_seed_text_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/Button" to="." method="_on_settings_pressed"]
 [connection signal="timeout" from="SeedWrongTimer" to="." method="_on_seed_wrong_timer_timeout"]
