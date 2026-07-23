@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf78lu114wlvc"]
 
 [ext_resource type="Script" uid="uid://chcyxnl0kx88h" path="res://core/main/main_scene.gd" id="1_nec1f"]
+[ext_resource type="PackedScene" uid="uid://bbjq1csdm7idm" path="res://core/main/game_over.tscn" id="2_fgrs6"]
 [ext_resource type="Texture2D" uid="uid://cdlvvqfr56jg2" path="res://core/main/assets/background.png" id="3_lykkd"]
 [ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="4_mh84v"]
 [ext_resource type="PackedScene" uid="uid://b3uyqaxqt1uk5" path="res://core/slot/slot-machine.tscn" id="5_rvjp5"]
@@ -12,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dqkd4cbxductb" path="res://assets/audio/sfx/you_won.wav" id="10_na1uf"]
 [ext_resource type="AudioStream" uid="uid://1q0i2j4jjm8c" path="res://assets/audio/sfx/you_lost.wav" id="11_ww4nf"]
 [ext_resource type="AudioStream" uid="uid://dhwbn4rpyyf2p" path="res://assets/audio/sfx/round_completed.wav" id="12_fgrs6"]
+[ext_resource type="Shader" uid="uid://ewsdt2k0sbxn" path="res://assets/transitions/circular.gdshader" id="13_ww4nf"]
 
 [sub_resource type="Animation" id="Animation_sd7qy"]
 length = 0.001
@@ -143,6 +145,106 @@ tracks/11/path = NodePath("Cabinet/ScoreLabel2/Plus:position:y")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("NewRoundLabel:size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 32)]
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("NewRoundLabel:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(100.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("NewRoundLabel:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-40.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:r")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.92, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:g")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5826667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:b")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:a")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Cabinet/TimeLabel/Plus:position:x")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(16.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Cabinet/TimeLabel/Plus:position:y")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -286,16 +388,168 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.20216453, 0.40611812, 0.60291547, 0.79076743, 1)
 }
 
+[sub_resource type="Animation" id="Animation_na1uf"]
+resource_name = "new_round"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewRoundLabel:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 32)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NewRoundLabel:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(100.25, -0.25, 0, 0.25, 0, 100.25, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NewRoundLabel:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-40.5, -0.25, 0, 0.6800111, 14.5, 30, -1.1199889, 1, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_na1uf"]
 _data = {
 &"RESET": SubResource("Animation_sd7qy"),
 &"added_diff": SubResource("Animation_852q7"),
-&"added_score": SubResource("Animation_dhm5a")
+&"added_score": SubResource("Animation_dhm5a"),
+&"new_round": SubResource("Animation_na1uf")
 }
+
+[sub_resource type="Animation" id="Animation_ww4nf"]
+resource_name = "added_time"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(0.92, -0.25, 0, 0.25, 0, 0.92, -0.033333335, 0, 0, 0, 0.92, -0.10000001, 0, 0, 0, 0.92, -0.03333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(0.5826667, -0.25, 0, 0.25, 0, 0.5826667, -0.033333335, 0, 0, 0, 0.5826667, -0.10000001, 0, 0, 0, 0.5826667, -0.03333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0, 0, -0.10000001, 0, 0, 0, 0, -0.03333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cabinet/TimeLabel/Plus:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.033333335, -0.16666667, 0, 0, 1, -0.10000001, 0, 0, 0, 0, -0.03333333, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cabinet/TimeLabel/Plus:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(16.5, -0.25, 0, 0.25, 0, 16.5, -0.03192257, 0, 0, 0, 16.5, -0.03497899, 0, 0, 0, 16.5, -0.033280984, 0, 0, 0, 16.5, -0.033620577, 0, 0, 0, 16.5, -0.03286355, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.19153543, 0.40140936, 0.60109526, 0.8028187, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cabinet/TimeLabel/Plus:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(-9.25, -0.25, 0, 0.25, 0, -14.07, -0.03192257, 0.8033333, 0, 0, -7.18, -0.03497899, -1.1483333, 0, 0, -12.87, -0.033280984, 0.9483333, 0, 0, -8.385, -0.033620577, -0.74749994, 0, 0, -11.605, -0.03286355, 0.5366666, 0, 0),
+"times": PackedFloat32Array(0, 0.19153543, 0.40140936, 0.60109526, 0.8028187, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgrs6"]
+_data = {
+&"added_time": SubResource("Animation_ww4nf")
+}
+
+[sub_resource type="Animation" id="Animation_fgrs6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/circle_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_llwny"]
+resource_name = "transition"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/circle_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.25, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afcuy"]
+_data = {
+&"RESET": SubResource("Animation_fgrs6"),
+&"transition": SubResource("Animation_llwny")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4r2n2"]
+shader = ExtResource("13_ww4nf")
+shader_parameter/circle_radius = 1.5
+shader_parameter/center = Vector2(0.5, 0.5)
 
 [node name="MainScene" type="Node2D" unique_id=1888842053]
 scale = Vector2(4, 4)
 script = ExtResource("1_nec1f")
+game_over_scene = ExtResource("2_fgrs6")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1579229802]
 texture = ExtResource("3_lykkd")
@@ -369,12 +623,12 @@ theme_override_fonts/font = ExtResource("8_na1uf")
 text = "0000000"
 
 [node name="Plus" type="Label" parent="Cabinet/TimeLabel" unique_id=1684273422]
-visible = false
 layout_mode = 0
 offset_left = 16.5
 offset_top = -9.25
 offset_right = 56.5
 offset_bottom = 1.75
+theme_override_colors/font_color = Color(0.92, 0.5826667, 0, 0)
 text = "+++"
 
 [node name="DiffLabel" type="Label" parent="Cabinet" unique_id=1168077771]
@@ -411,7 +665,7 @@ scale = Vector2(1, 1)
 
 [node name="Timers" type="Node" parent="." unique_id=900113209]
 
-[node name="SlotTimer" type="Timer" parent="Timers" unique_id=1400433981]
+[node name="SlotTimer" type="Timer" parent="Timers" unique_id=1346400084]
 wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=588216291]
@@ -425,3 +679,29 @@ stream = ExtResource("11_ww4nf")
 
 [node name="PlayerRoundCompleted" type="AudioStreamPlayer" parent="." unique_id=821572027]
 stream = ExtResource("12_fgrs6")
+
+[node name="NewRoundLabel" type="Label" parent="." unique_id=1213295324]
+offset_left = 100.25
+offset_top = -40.5
+offset_right = 220.25
+offset_bottom = -8.5
+theme_override_colors/font_color = Color(0.92156863, 0.58431375, 0, 1)
+theme_override_fonts/font = ExtResource("8_na1uf")
+theme_override_font_sizes/font_size = 48
+text = "NEW ROUND!"
+
+[node name="AnimationPlayerTime" type="AnimationPlayer" parent="." unique_id=402066139]
+libraries/ = SubResource("AnimationLibrary_fgrs6")
+
+[node name="TransitionAnimation" type="AnimationPlayer" parent="." unique_id=1888584501]
+libraries/ = SubResource("AnimationLibrary_afcuy")
+
+[node name="Transition" type="Node2D" parent="." unique_id=85764121]
+
+[node name="ColorRect" type="ColorRect" parent="Transition" unique_id=142740966]
+z_index = 1000
+material = SubResource("ShaderMaterial_4r2n2")
+offset_right = 320.75
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

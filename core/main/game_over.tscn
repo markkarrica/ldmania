@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://bbjq1csdm7idm"]
+
+[ext_resource type="Texture2D" uid="uid://cdlvvqfr56jg2" path="res://core/main/assets/background.png" id="1_8m0g6"]
+[ext_resource type="Script" uid="uid://iynhe0jytgtf" path="res://core/main/game_over.gd" id="1_eip4m"]
+[ext_resource type="Texture2D" uid="uid://c4boo85x0edru" path="res://core/main/assets/border.png" id="2_df0g3"]
+[ext_resource type="Texture2D" uid="uid://cb6x7mpb7bmm7" path="res://core/main/assets/button-yellow.png" id="3_tht74"]
+[ext_resource type="Texture2D" uid="uid://dhddybld0k5tc" path="res://core/main/assets/button-red.png" id="4_eip4m"]
+[ext_resource type="Texture2D" uid="uid://b1d431ir55y5w" path="res://core/main/assets/button-blue.png" id="5_omulr"]
+[ext_resource type="Theme" uid="uid://c7uhhv28mfwfr" path="res://ui/themes/in-game-theme.tres" id="6_hn5c6"]
+[ext_resource type="FontFile" uid="uid://ypgxwmxsx5mq" path="res://assets/fonts/LDMania3x5.ttf" id="7_qp15l"]
+[ext_resource type="Texture2D" uid="uid://c7qlrk22tvofy" path="res://ui/main_menu/assets/buttons/play-button.png" id="8_tht74"]
+[ext_resource type="Texture2D" uid="uid://ce8jtxd0ahqv8" path="res://ui/main_menu/assets/buttons/play-button-pressed.png" id="9_eip4m"]
+
+[node name="GameOver" type="Node2D" unique_id=299784762]
+scale = Vector2(4, 4)
+script = ExtResource("1_eip4m")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1575382442]
+texture = ExtResource("1_8m0g6")
+centered = false
+
+[node name="Border" type="Sprite2D" parent="." unique_id=1107354620]
+texture = ExtResource("2_df0g3")
+centered = false
+
+[node name="ButtonYellow" type="Sprite2D" parent="." unique_id=701070378]
+position = Vector2(82, 167)
+texture = ExtResource("3_tht74")
+centered = false
+
+[node name="ButtonRed" type="Sprite2D" parent="." unique_id=675592681]
+position = Vector2(111, 167)
+texture = ExtResource("4_eip4m")
+centered = false
+
+[node name="ButtonBlue" type="Sprite2D" parent="." unique_id=1226975825]
+position = Vector2(140, 167)
+texture = ExtResource("5_omulr")
+centered = false
+
+[node name="Node2D" type="Node2D" parent="." unique_id=457360561]
+
+[node name="ScoreLabel2" type="Label" parent="Node2D" unique_id=1066615901]
+offset_left = 11.75
+offset_top = 134.0
+offset_right = 42.75
+offset_bottom = 157.0
+mouse_filter = 1
+theme = ExtResource("6_hn5c6")
+theme_override_fonts/font = ExtResource("7_qp15l")
+text = "SCORE"
+
+[node name="ScoreLabelNumber" type="Label" parent="Node2D/ScoreLabel2" unique_id=1755889803]
+layout_mode = 0
+offset_left = -3.25
+offset_top = 9.25
+offset_right = 27.75
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("7_qp15l")
+text = "-------"
+
+[node name="TimeLabel" type="Label" parent="Node2D" unique_id=1977559188]
+offset_left = 12.25
+offset_top = 76.75
+offset_right = 43.25
+offset_bottom = 99.75
+mouse_filter = 1
+theme = ExtResource("6_hn5c6")
+theme_override_fonts/font = ExtResource("7_qp15l")
+text = "TIME"
+
+[node name="TimeLabelNumber" type="Label" parent="Node2D/TimeLabel" unique_id=1680454708]
+layout_mode = 0
+offset_left = -3.25
+offset_top = 9.25
+offset_right = 27.75
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("7_qp15l")
+text = "-------"
+
+[node name="DiffLabel" type="Label" parent="Node2D" unique_id=1277887375]
+offset_left = 11.5
+offset_top = 20.0
+offset_right = 42.5
+offset_bottom = 43.0
+mouse_filter = 1
+theme = ExtResource("6_hn5c6")
+theme_override_fonts/font = ExtResource("7_qp15l")
+text = "DIFF"
+
+[node name="DiffLabelNumber" type="Label" parent="Node2D/DiffLabel" unique_id=1052753493]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 9.25
+offset_right = 28.0
+offset_bottom = 32.25
+theme_override_fonts/font = ExtResource("7_qp15l")
+text = "-------"
+
+[node name="InfLabel" type="Label" parent="." unique_id=1128222644]
+offset_left = 135.75
+offset_top = 55.5
+offset_right = 347.75
+offset_bottom = 100.5
+theme = ExtResource("6_hn5c6")
+theme_override_font_sizes/font_size = 64
+text = "inf"
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="InfLabel" unique_id=191525492]
+position = Vector2(43.25, 44.5)
+emitting = false
+amount = 250
+spread = 123.35
+initial_velocity_min = 36.9
+initial_velocity_max = 120.3
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.92156863, 0.58431375, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="InfLabel" unique_id=1187459547]
+position = Vector2(43.75, 21)
+emitting = false
+amount = 800
+spread = 123.35
+initial_velocity_min = 36.9
+initial_velocity_max = 120.3
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.92156863, 0.58431375, 0, 1)
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="InfLabel" unique_id=2009972315]
+position = Vector2(-2, 44.5)
+emitting = false
+amount = 800
+spread = 123.35
+initial_velocity_min = 36.9
+initial_velocity_max = 120.3
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.92156863, 0.58431375, 0, 1)
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="InfLabel" unique_id=885794221]
+position = Vector2(-1.5, 20.5)
+emitting = false
+amount = 800
+spread = 123.35
+initial_velocity_min = 36.9
+initial_velocity_max = 120.3
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(0.92156863, 0.58431375, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1645030889]
+offset_left = 69.0
+offset_top = 2.25
+offset_right = 261.0
+offset_bottom = 47.25
+theme = ExtResource("6_hn5c6")
+theme_override_font_sizes/font_size = 64
+text = "FINAL SCORE: "
+
+[node name="NormalSizedScores" type="Label" parent="Label" unique_id=1694585094]
+layout_mode = 0
+offset_left = -0.75
+offset_top = 36.25
+offset_right = 191.25
+offset_bottom = 83.25
+theme = ExtResource("6_hn5c6")
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 32
+text = "SCI: YYY
+EXP: XXX"
+
+[node name="FullScore" type="Label" parent="Label" unique_id=345895438]
+layout_mode = 0
+offset_left = -0.75
+offset_top = 70.25
+offset_right = 191.25
+offset_bottom = 145.0
+theme = ExtResource("6_hn5c6")
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 16
+text = "FULL: XXX"
+autowrap_mode = 1
+clip_text = true
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1213177827]
+offset_left = 268.75
+offset_top = 155.75
+offset_right = 308.75
+offset_bottom = 195.75
+texture_normal = ExtResource("8_tht74")
+texture_pressed = ExtResource("9_eip4m")
+
+[node name="ParticlesTimerOn" type="Timer" parent="." unique_id=1888116358]
+wait_time = 0.25
+one_shot = true
+
+[node name="ParticlesTimerOff" type="Timer" parent="." unique_id=1920127299]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="ParticlesTimerOn" to="." method="_on_particles_timer_timeout"]
+[connection signal="timeout" from="ParticlesTimerOff" to="." method="_on_particles_timer_off_timeout"]

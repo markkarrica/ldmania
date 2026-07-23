@@ -9,6 +9,26 @@ func _ready() -> void:
 	if override_seed != 0:
 		random.set_seed(override_seed)
 
+func to_scientific_string(given_num: float, max_len: int) -> String:
+	var num
+	var extra = 0
+	if given_num > 1000000000000000000:
+		num = given_num
+		extra = 2
+	else:
+		num = int(given_num)
+	var num_str = str(num)
+	var n_len = num_str.length()
+	if n_len <= max_len:
+		return num_str
+	var fl = num/pow(10, n_len-1-extra)
+	var integer_part = str(int(fl))
+	var decimals = str(fl).split(".")[1]
+	var exponent = "e%d" % (n_len-1)
+	var final_number = "%s . %s %s" % [integer_part, decimals.left(7-2-exponent.length()), exponent]
+	final_number = final_number.replace(" ", "")
+	return final_number
+
 func deterministic_shuffle(array: Array, custom_rng: RandomNumberGenerator = random) -> Array:
 	# Loop backwards through the array
 	var shuffled_array = array.duplicate()

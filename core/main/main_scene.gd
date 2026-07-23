@@ -5,7 +5,10 @@ extends Node2D
 var minigames: Array[int] = []
 var should_take_slot_input = false
 
+@export var game_over_scene: PackedScene
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player_time: AnimationPlayer = $AnimationPlayerTime
 @onready var score_label: Label = $Cabinet/ScoreLabel2/ScoreLabelNumber
 @onready var time_label: Label = $Cabinet/TimeLabel/TimeLabelNumber
 @onready var diff_label: Label = $Cabinet/DiffLabel/DiffLabelNumber
@@ -13,9 +16,21 @@ var should_take_slot_input = false
 @onready var win_player: AudioStreamPlayer = $PlayerWinMinigame
 @onready var lose_player: AudioStreamPlayer = $PlayerLoseMinigame
 @onready var round_player: AudioStreamPlayer = $PlayerRoundCompleted
+@onready var transition_player: AnimationPlayer = $TransitionAnimation
+
+var is_failed = false
+const BASE_TIME: float = 2
+var counting = false
 
 func _animate_slot_and_load_minigame():
 	# We wait for input/animations
+	if StateMachine.current_minigame_index == 0:
+		# new round
+		animation_player.play("new_round")
+		await animation_player.animation_finished
+		animation_player.play_backwards("new_round")
+		await animation_player.animation_finished
+		
 	_animate_slot_in()
 	timer.start()
 	await timer.timeout
@@ -31,6 +46,7 @@ func _animate_slot_and_load_minigame():
 	_load_next_minigame()
 
 func _ready() -> void:
+	StateMachine.time_left = BASE_TIME 
 	for i in range(Games.GAMES_AMOUNT):
 		minigames.append(i)
 	StateMachine.set_minigames(minigames)
@@ -76,30 +92,21 @@ func _load_next_minigame():
 	move_child(current_minigame, 1)
 	current_minigame.position.x = 64
 	current_minigame.position.y = 24
-
-func _to_scientific_string(given_num: float, max_len: int) -> String:
-	var num
-	var extra = 0
-	if given_num > 1000000000000000000:
-		num = given_num
-		extra = 2
-	else:
-		num = int(given_num)
-	var num_str = str(num)
-	var n_len = num_str.length()
-	if n_len <= max_len:
-		return num_str
-	var fl = num/pow(10, n_len-1-extra)
-	var integer_part = str(int(fl))
-	var decimals = str(fl).split(".")[1]
-	var exponent = "e%d" % (n_len-1)
-	var final_number = "%s . %s %s" % [integer_part, decimals.left(7-2-exponent.length()), exponent]
-	final_number = final_number.replace(" ", "")
-	return final_number
+	counting = true
 
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if counting:
+		StateMachine.time_left -= delta
+	if StateMachine.time_left <= 0:
+		StateMachine.time_left = 0
+		transition_player.play("transition")
+		await transition_player.animation_finished
+		if !is_failed:
+			is_failed = true
+			get_tree().change_scene_to_packed(game_over_scene)
+
 	# We shouldn't update these every frame because performance, still i don't care
 	time_label.text = str(StateMachine.time_left).substr(0,7)
 	diff_label.text = str(StateMachine.difficulty).substr(0,7)
@@ -109,12 +116,15 @@ func _process(_delta: float) -> void:
 	# too big but idk how to do it properly yet
 
 func _on_minigame_end(is_success: bool, bonus_time_gained: int):
+	counting = false
 	StateMachine.current_minigame_index += 1
 	if is_success:
 		win_player.play()
 		StateMachine.score += StateMachine.difficulty
+		StateMachine.time_left += bonus_time_gained
+		animation_player_time.play("added_time")
 		animation_player.play("added_score")
-		StateMachine.exp_score = str(_to_scientific_string(pow(Util.CONSTANT_E, StateMachine.score)-1, 7))
+		StateMachine.exp_score = Util.to_scientific_string(pow(Util.CONSTANT_E, StateMachine.score)-1, 7)
 	else:
 		lose_player.play()
 	if StateMachine.current_minigame_index == Games.GAMES_AMOUNT:
@@ -131,10 +141,13 @@ func _on_minigame_end(is_success: bool, bonus_time_gained: int):
 			await lose_player.finished
 			round_player.play()
 
-
 	_animate_slot_and_load_minigame()
 
 func _input(event: InputEvent) -> void:
 	if should_take_slot_input && event.is_action_pressed("interact"):
 		slot_machine.stop(StateMachine.shuffled_games[StateMachine.current_minigame_index], 1.5)
 		should_take_slot_input = false
+	if event.is_action_pressed("debug_key_1"):
+		transition_player.play("transition")
+		await transition_player.animation_finished
+		get_tree().change_scene_to_packed(game_over_scene)
