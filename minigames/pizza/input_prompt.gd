@@ -13,7 +13,7 @@ enum Direction {
 	OneDirection = 999
 }
 
-var directions: Array[Direction]
+var _directions: Array[Direction]
 var wrap_after: int = 10
 @onready var up_arrow: Sprite2D = $UpArrow
 @onready var xoffset: float = up_arrow.texture.get_size().x + 4 # 4 is a bit of margin
@@ -22,7 +22,7 @@ var wrap_after: int = 10
 var correct_guesses: int = 0
 
 func init(directions: Array[Direction]):
-	self.directions = directions
+	_directions = directions
 	var x: float = xoffset / 2
 	var y: float = yoffset / 2
 	var index: int = 0
@@ -62,19 +62,19 @@ func _input(event: InputEvent) -> void:
 	var correct_dir: bool = false
 	if(event.is_action_pressed("move_down")):
 		is_dir_pressed = true
-		if(directions[correct_guesses] == Direction.down):
+		if(_directions[correct_guesses] == Direction.down):
 			correct_dir = true
 	elif(event.is_action_pressed("move_left")):
 		is_dir_pressed = true
-		if(directions[correct_guesses] == Direction.left):
+		if(_directions[correct_guesses] == Direction.left):
 			correct_dir = true
 	elif(event.is_action_pressed("move_right")):
 		is_dir_pressed = true
-		if(directions[correct_guesses] == Direction.right):
+		if(_directions[correct_guesses] == Direction.right):
 			correct_dir = true
 	elif(event.is_action_pressed("move_up")):
 		is_dir_pressed = true
-		if(directions[correct_guesses] == Direction.up):
+		if(_directions[correct_guesses] == Direction.up):
 			correct_dir = true
 	
 	if(correct_dir):
@@ -83,11 +83,11 @@ func _input(event: InputEvent) -> void:
 		tween.tween_property(current_direction, "modulate:a", 0.6, 0.2).set_ease(Tween.EASE_IN_OUT)
 		correct_guesses += 1
 		emit_signal("cut_pizza", correct_guesses)
-		if(correct_guesses == len(directions)):
+		if(correct_guesses == len(_directions)):
 			emit_signal("end", true)
 	elif(is_dir_pressed): emit_signal("end", false)
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
