@@ -20,7 +20,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Util="*uid://cqhtt85tja2ff"
-StateMachine="*uid://cvumim4ltmspe"
+StateMachine="*uid://m0n27mutg1r1"
 Settings="*uid://dscie375x6lgb"
 Games="*uid://cwaovgyy75v7a"
 

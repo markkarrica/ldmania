@@ -16,8 +16,7 @@ position = Vector2(164, 98)
 texture = ExtResource("2_nimag")
 
 [node name="InputPrompt" parent="." unique_id=2064534793 instance=ExtResource("3_1hu3y")]
-
-[node name="Line2D" type="Line2D" parent="." unique_id=1293483647]
+z_index = 1
 
 [connection signal="cut_pizza" from="InputPrompt" to="." method="_cut_pizza"]
 [connection signal="end" from="InputPrompt" to="." method="_on_input_prompt_end"]

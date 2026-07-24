@@ -16,7 +16,7 @@ func _cut_pizza(slice_number: int):
 	
 	var pizza_texture: Texture2D = $Pizza.texture
 	var pizza_position: Vector2 = $Pizza.position
-	var pizza_radius := pizza_texture.get_height() / 2
+	var pizza_radius := float(pizza_texture.get_height()) / 2
 	var pizza_x_start := pizza_position.x
 	var pizza_y_start := pizza_position.y
 	
@@ -30,6 +30,7 @@ func _cut_pizza(slice_number: int):
 	line2D.add_point(Vector2(pizza_x_start - x, pizza_y_start - y))
 	line2D.add_point(Vector2(pizza_x_start + x, pizza_y_start + y))
 	add_child(line2D)
+	move_child(line2D, -2)
 
 func _on_input_prompt_end(success: bool) -> void:
 	minigame_end(success, 10 if success else 0)

@@ -52,6 +52,7 @@ func randomize_labels():
 
 
 func _ready() -> void:
+	$AudioStreamPlayer.volume_linear = float(Settings.music_volume) / 100
 	title.rotation_degrees = max_rotation
 	randomize_labels()
 	
@@ -111,7 +112,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_audio_stream_player_2d_finished() -> void:
-	print("Hello")
 	music.play()
 
 

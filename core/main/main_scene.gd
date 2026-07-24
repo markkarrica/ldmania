@@ -19,7 +19,7 @@ var should_take_slot_input = false
 @onready var transition_player: AnimationPlayer = $TransitionAnimation
 
 var is_failed = false
-const BASE_TIME: float = 2
+const BASE_TIME: float = 100
 var counting = false
 
 func _animate_slot_and_load_minigame():
@@ -46,6 +46,12 @@ func _animate_slot_and_load_minigame():
 	_load_next_minigame()
 
 func _ready() -> void:
+	var vol = float(Settings.effects_volume) / 100
+	
+	$PlayerLoseMinigame.volume_linear = vol
+	$PlayerRoundCompleted.volume_linear = vol
+	$PlayerWinMinigame.volume_linear = vol
+	
 	StateMachine.time_left = BASE_TIME 
 	for i in range(Games.GAMES_AMOUNT):
 		minigames.append(i)
