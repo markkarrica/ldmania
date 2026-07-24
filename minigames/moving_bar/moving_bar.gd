@@ -4,15 +4,16 @@ var pill_speed: float
 var is_hovering: bool
 var pills_number: int = 2 # Plus the first one
 var current_pill_number = 0
-var pills_mult: Array[float] = [1.0, 0.9, 0.8]
+var pills_mult: Array[float] = [1.0, 0.75, 0.6]
 @onready var pill = $"Bar/Pill"
 @onready var pill_area: Area2D = $Cursor/Area2D
 @onready var pill_direction = [-1.0,1.0][Util.random.randi_range(0,1)]
 @onready var cursor_area = $Cursor/Area2D
 @onready var bar_size = $Bar.size[0]
-var base_speed: int = 70
+var base_speed: int = 140
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	StateMachine.difficulty = 3
 	pill_speed = StateMachine.log_diff_scale()*base_speed
 	
 
@@ -42,7 +43,6 @@ func _input(event):
 				minigame_end(true, StateMachine.difficulty)
 				return
 			current_pill_number += 1
-			pill.size[0] *= pills_mult[current_pill_number]
 			pill_speed /= pills_mult[current_pill_number]
 			pill.position = Vector2(Util.random.randi_range(0, bar_size - pill.size[0]), 0)
 			

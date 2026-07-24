@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://dqs1rqgedc1je"]
 
 [ext_resource type="Script" uid="uid://pbccs7hh4kqe" path="res://minigames/moving_bar/moving_bar.gd" id="1_fywjp"]
+[ext_resource type="Texture2D" uid="uid://uh51a1v2uxl8" path="res://minigames/moving_bar/assets/bar.png" id="2_tyt0u"]
+[ext_resource type="Texture2D" uid="uid://y8ymcl8y3dtj" path="res://minigames/moving_bar/assets/pill.png" id="3_2fnr8"]
+[ext_resource type="Texture2D" uid="uid://c35jbhqneuk3v" path="res://minigames/moving_bar/assets/cursor.png" id="4_2fnr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2x5"]
-size = Vector2(40, 10)
+size = Vector2(41, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r2n2"]
 size = Vector2(395, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyl1c"]
-size = Vector2(7, 40)
+size = Vector2(11, 40)
 
 [node name="MovingBar" type="Node2D" unique_id=1349646125]
 script = ExtResource("1_fywjp")
@@ -18,30 +21,29 @@ script = ExtResource("1_fywjp")
 offset_right = 200.0
 offset_bottom = 134.0
 
-[node name="Bar" type="ColorRect" parent="." unique_id=1482292607]
-offset_left = 4.0
-offset_top = 57.25
-offset_right = 197.0
-offset_bottom = 67.25
-color = Color(0.1545313, 0.40563887, 0.6809886, 1)
+[node name="Bar" type="TextureRect" parent="." unique_id=595758928]
+offset_top = 54.0
+offset_right = 199.0
+offset_bottom = 66.0
+texture = ExtResource("2_tyt0u")
 
-[node name="Pill" type="ColorRect" parent="Bar" unique_id=1925182477]
+[node name="Pill" type="TextureRect" parent="Bar" unique_id=446326833]
 layout_mode = 0
 offset_left = 58.0
 offset_right = 98.0
 offset_bottom = 10.0
-color = Color(0.6896427, 0.6780819, 0.97860736, 1)
+texture = ExtResource("3_2fnr8")
 
 [node name="PillArea" type="Area2D" parent="Bar/Pill" unique_id=1098450540]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/Pill/PillArea" unique_id=349087736]
-position = Vector2(20, 5)
+position = Vector2(20.5, 6)
 shape = SubResource("RectangleShape2D_nb2x5")
 
 [node name="RightBoundry" type="Area2D" parent="Bar" unique_id=2047753405]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/RightBoundry" unique_id=450111476]
-position = Vector2(390, 4.75)
+position = Vector2(397, 6)
 shape = SubResource("RectangleShape2D_4r2n2")
 
 [node name="LeftBoundry" type="Area2D" parent="Bar" unique_id=1126928004]
@@ -50,16 +52,17 @@ shape = SubResource("RectangleShape2D_4r2n2")
 position = Vector2(-198, 4.75)
 shape = SubResource("RectangleShape2D_4r2n2")
 
-[node name="Cursor" type="ColorRect" parent="." unique_id=629429332]
+[node name="Cursor" type="TextureRect" parent="." unique_id=2122279801]
 offset_left = 116.0
 offset_top = 44.0
 offset_right = 123.0
 offset_bottom = 84.0
+texture = ExtResource("4_2fnr8")
 
 [node name="Area2D" type="Area2D" parent="Cursor" unique_id=477177896]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D" unique_id=1621172295]
-position = Vector2(3.5, 20)
+position = Vector2(4.5, 21)
 shape = SubResource("RectangleShape2D_tyl1c")
 
 [connection signal="area_entered" from="Bar/RightBoundry" to="." method="_on_right_boundry_area_entered"]
