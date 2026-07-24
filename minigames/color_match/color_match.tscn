@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxxbage7ammel"]
+
+[ext_resource type="Script" uid="uid://chsj4mp3dx8j5" path="res://minigames/color_match/color_match.gd" id="1_dgeck"]
+[ext_resource type="Texture2D" uid="uid://bf2tubhtij35f" path="res://minigames/color_match/assets/dark.png" id="2_ut6fq"]
+[ext_resource type="Texture2D" uid="uid://bocb5hxxgetpf" path="res://minigames/color_match/assets/medium.png" id="3_lv77l"]
+[ext_resource type="Texture2D" uid="uid://cs01s6h00m7ef" path="res://minigames/color_match/assets/light.png" id="4_fb5j6"]
+
+[node name="ColorMatch" type="Node2D" unique_id=749035650]
+script = ExtResource("1_dgeck")
+textures = Array[CompressedTexture2D]([ExtResource("2_ut6fq"), ExtResource("3_lv77l"), ExtResource("4_fb5j6")])
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1056461853]
+offset_right = 200.0
+offset_bottom = 134.0
+
+[node name="Grid" type="Node2D" parent="." unique_id=1190254855]
+
+[node name="Prompt" type="Marker2D" parent="Grid" unique_id=1586790039]
+position = Vector2(-13.75, 8.5)
+
+[node name="Target" type="Sprite2D" parent="." unique_id=1363908545]
+position = Vector2(159.5, 11.5)

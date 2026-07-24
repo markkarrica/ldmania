@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c23lqsjpu03wv"]
+
+[ext_resource type="Texture2D" uid="uid://cf0r1vdlt3jil" path="res://ui/main_menu/assets/buttons/dice-button-pressed.png" id="1_mp16n"]
+[ext_resource type="Script" uid="uid://cu3at4ifahhbk" path="res://minigames/color_match/prompt.gd" id="2_i25b2"]
+
+[node name="Prompt" type="TextureButton" unique_id=639210439]
+offset_right = 15.0
+offset_bottom = 15.0
+texture_normal = ExtResource("1_mp16n")
+texture_pressed = ExtResource("1_mp16n")
+script = ExtResource("2_i25b2")

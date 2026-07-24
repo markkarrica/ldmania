@@ -33,7 +33,7 @@ func stop_at(target_index: int, set_stop_time: float):
 	
 
 func raise_sprite_increase_token(sprite):
-	sprite.position.y = -sprite_height
+	sprite.position.y -= sprite_height * 2
 	sprite.texture = Games.get_ctx2d(StateMachine.minigames[next_token])
 	next_token += 1
 
@@ -54,14 +54,29 @@ func _process(delta: float) -> void:
 			next_token = 0
 		if not should_stop:
 			return
-	else:
-		current_sprite.position.y = result_sprite.position.y  -59
-	
-	if next_sprite.texture == result_sprite.texture && next_sprite.position.y == -sprite_height:
-		next_sprite.visible = false
-		result_sprite.visible = true
-		physics_based = false
-		if tween: tween.kill()
+		var winning_sprite = null
 		
-		tween = create_tween()
-		tween.tween_property(result_sprite, "position:y", 0, stop_time).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		# We check < 0 instead of == -sprite_height to account for the delta overshoot!
+		if next_sprite.texture == result_sprite.texture and next_sprite.position.y < 0:
+			winning_sprite = next_sprite
+		elif current_sprite.texture == result_sprite.texture and current_sprite.position.y < 0:
+			winning_sprite = current_sprite
+			
+		# If we found a winner, trigger the stop animation
+		if winning_sprite != null:
+			winning_sprite.visible = false
+			result_sprite.visible = true
+			result_sprite.position.y = winning_sprite.position.y
+			physics_based = false
+			
+			if tween: tween.kill()
+			tween = create_tween()
+			tween.tween_property(result_sprite, "position:y", 0, stop_time).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+	else:
+		# Keep the losing (visible) sprite attached BELOW the result sprite
+		# so it gets naturally pushed off the bottom of the screen as the winner rolls in.
+		if current_sprite.visible:
+			current_sprite.position.y = result_sprite.position.y + sprite_height
+		if next_sprite.visible:
+			next_sprite.position.y = result_sprite.position.y + sprite_height

@@ -7,7 +7,6 @@ extends Node2D
 @onready var particle_timer_off: Timer = $ParticlesTimerOff
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	StateMachine.score = 760
 	var exp_score = pow(Util.CONSTANT_E, StateMachine.score)-1
 	var sci_score = Util.to_scientific_string(exp_score, 7)
 	if sci_score != "inf":
@@ -17,7 +16,7 @@ func _ready() -> void:
 		var r_text = regular_scores.text
 		regular_scores.text = r_text.replace("YYY", sci_score).replace("XXX", "eXP(%d) -1" % StateMachine.score)
 		var f_text = full_score.text
-		full_score.text = f_text.replace("XXX", str(exp_score))
+		full_score.text = f_text.replace("XXX", str(exp_score).get_slice(".", 0))
 		return
 	
 	particle_timer_on.start(0.1)
